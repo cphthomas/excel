@@ -19,6 +19,9 @@ import { Image } from "react-bootstrap";
  */
 const Post = ({ data, location }) => {
     const post = data.ghostPost;
+    if (!post) {
+        window.location.href = process.env.GATSBY_SITE_URL;
+    }
     const fisrtTagPlan = post?.tags[0] ? post.tags[0].name : "";
     //const secondTagBookAccess = post.tags[1] ? post.tags[1].name : "";
     const [userLoggedIn, setUserLoggedIn] = useState(false);
