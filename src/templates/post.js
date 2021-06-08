@@ -10,7 +10,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import * as tocbot from "tocbot";
 import { constants } from "../utils/constants";
 import { Image } from "react-bootstrap";
-import { Link, navigate } from "gatsby";
 
 /**
  * Single post view (/:slug)
@@ -21,7 +20,9 @@ import { Link, navigate } from "gatsby";
 const Post = ({ data, location }) => {
     const post = data.ghostPost;
     if (!post) {
-        navigate(process.env.GATSBY_SITE_URL);
+        const isBrowser = () => typeof window !== "undefined";
+        isBrowser() && window.location.replace(process.env.GATSBY_SITE_URL);
+        //window.location.href = process.env.GATSBY_SITE_URL;
     }
     const fisrtTagPlan = post?.tags[0] ? post.tags[0].name : "";
     //const secondTagBookAccess = post.tags[1] ? post.tags[1].name : "";
