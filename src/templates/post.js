@@ -19,8 +19,8 @@ import { Image } from "react-bootstrap";
  */
 const Post = ({ data, location }) => {
     const post = data.ghostPost;
-    const fisrtTagPlan = post.tags[0].name;
-    const secondTagBookAccess = post.tags[1] ? post.tags[1].name : "";
+    const fisrtTagPlan = post?.tags[0] ? post.tags[0].name : "";
+    //const secondTagBookAccess = post.tags[1] ? post.tags[1].name : "";
     const [userLoggedIn, setUserLoggedIn] = useState(false);
     const [apiResponse, setApiResponse] = useState(false);
     const [userPlanId, setUserPlanId] = useState("");
@@ -147,7 +147,7 @@ const Post = ({ data, location }) => {
         <div>
             <MetaData data={data} location={location} type="article" />
             <Helmet>
-                <style type="text/css">{`${post.codeinjection_styles}`}</style>
+                <style type="text/css">{`${post?.codeinjection_styles}`}</style>
             </Helmet>
             <Layout>
                 {apiResponse &&
@@ -293,7 +293,10 @@ export default Post;
 
 export const postQuery = graphql`
     query($slug: String!) {
-        ghostPost(slug: { eq: $slug }) {
+        ghostPost(
+            slug: { eq: $slug }
+            tags: { elemMatch: { name: { eq: "BOOK_TWO" } } }
+        ) {
             ...GhostPostFields
         }
     }
