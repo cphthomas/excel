@@ -21,7 +21,10 @@ exports.handler = async function ({ body, headers }, context) {
         const subscription = await stripeEvent.data.object;
 
         let plan = "0";
-        if (subscription.items.data[0].plan.product == "prod_IyCAbZ8bewfWEx") {
+        if (
+            subscription.items.data[0].plan.product ==
+            process.env.GATSBY_PRO_PLAN_ID
+        ) {
             plan = "1";
         } else {
             plan = "2";

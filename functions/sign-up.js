@@ -34,7 +34,7 @@ exports.handler = async function (event) {
     // subscribe the new customer to the free plan
     await stripe.subscriptions.create({
         customer: customer.id,
-        items: [{ price: "price_1IKAnIIP8uHvYRBy68pRrArU" }],
+        items: [{ price: process.env.GATSBY_FREE_PLAN_PRICE }],
     });
 
     const userIp = await uniqid();

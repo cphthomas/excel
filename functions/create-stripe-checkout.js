@@ -5,9 +5,9 @@ exports.handler = async function (event) {
 
     let price = "";
     if (planType == "pro") {
-        price = "price_1IMFmTIP8uHvYRBy8XgXjweR";
+        price = process.env.GATSBY_PRO_PLAN_PRICE;
     } else {
-        price = "price_1IMFnPIP8uHvYRBy5DLxSubd";
+        price = process.env.GATSBY_PREMIUM_PLAN_PRICE;
     }
 
     const session = await stripe.checkout.sessions.create({
