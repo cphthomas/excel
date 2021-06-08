@@ -40,8 +40,9 @@ async function getUserDetail(connection, email) {
     return new Promise((resolve, reject) => {
         connection.query(
             {
-                sql: "SELECT * FROM `external_users` WHERE `user_email` = ?",
-                values: [email],
+                sql:
+                    "SELECT * FROM `external_users` WHERE `user_email` = ? AND `book_access` = ?",
+                values: [email, process.env.GATSBY_BOOK_ACCESS],
             },
             function (error, results, fields) {
                 if (error) reject(err);
@@ -56,9 +57,9 @@ async function updateUser(connection, userEmail, password) {
         connection.query(
             {
                 sql:
-                    "UPDATE external_users SET user_password = ? WHERE user_email = ?",
+                    "UPDATE external_users SET user_password = ? WHERE user_email = ? AND `book_access` = ?",
                 timeout: 10000,
-                values: [password, userEmail],
+                values: [password, userEmail, process.env.GATSBY_BOOK_ACCESS],
             },
             function (error, results, fields) {
                 if (error) reject(err);

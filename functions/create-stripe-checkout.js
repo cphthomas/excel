@@ -12,8 +12,8 @@ exports.handler = async function (event) {
 
     const session = await stripe.checkout.sessions.create({
         customer: customerId,
-        success_url: "https://inspiring-kepler-554993.netlify.app",
-        cancel_url: "https://inspiring-kepler-554993.netlify.app",
+        success_url: process.env.GATSBY_SITE_URL,
+        cancel_url: process.env.GATSBY_SITE_URL,
         payment_method_types: ["card"],
         line_items: [{ price: price, quantity: 1 }],
         mode: "subscription",

@@ -74,7 +74,9 @@ export default Index;
 
 export const pageQuery = graphql`
     query GhostPostQuery {
-        allGhostPost {
+        allGhostPost(
+            filter: { tags: { elemMatch: { name: { eq: "BOOK_TWO" } } } }
+        ) {
             edges {
                 node {
                     ...GhostPostFields

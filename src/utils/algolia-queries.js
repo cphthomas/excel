@@ -1,14 +1,14 @@
 const escapeStringRegexp = require("escape-string-regexp");
 
 const pagePath = `content`;
-const indexName = `Ghost`;
+const indexName = `Book_two`;
 
 const pageQuery = `{
   pages: allGhostPost(
     filter: {
-      canonical_url: { regex: "" },
+        tags: { elemMatch: { name: { eq: "BOOK_TWO" } } }
     }
-  ) {
+) {
     edges {
       node {
         id

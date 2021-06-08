@@ -19,6 +19,8 @@ import { Image } from "react-bootstrap";
  */
 const Post = ({ data, location }) => {
     const post = data.ghostPost;
+    const fisrtTagPlan = post.tags[0].name;
+    const secondTagBookAccess = post.tags[1] ? post.tags[1].name : "";
     const [userLoggedIn, setUserLoggedIn] = useState(false);
     const [apiResponse, setApiResponse] = useState(false);
     const [userPlanId, setUserPlanId] = useState("");
@@ -149,10 +151,10 @@ const Post = ({ data, location }) => {
             </Helmet>
             <Layout>
                 {apiResponse &&
-                (post.tags[0].name == constants.FREE_POST ||
+                (fisrtTagPlan == constants.FREE_POST ||
                     userPlanId == constants.USER_PREMIUM_PLAN_ID ||
                     (userPlanId == constants.USER_PRO_PLAN_ID &&
-                        post.tags[0].name == constants.PRO_POST)) ? (
+                        fisrtTagPlan == constants.PRO_POST)) ? (
                     <article className="content">
                         {post.feature_image ? (
                             <figure className="post-feature-image">
@@ -177,8 +179,8 @@ const Post = ({ data, location }) => {
                     </article>
                 ) : apiResponse &&
                   !userLoggedIn &&
-                  (post.tags[0].name == constants.PRO_POST ||
-                      post.tags[0].name == constants.PREMIUM_POST) ? (
+                  (fisrtTagPlan == constants.PRO_POST ||
+                      fisrtTagPlan == constants.PREMIUM_POST) ? (
                     <div class="card">
                         <div class="card-body">
                             <h2>This post is for paying subscribers only</h2>
@@ -191,8 +193,8 @@ const Post = ({ data, location }) => {
                 ) : apiResponse &&
                   userLoggedIn &&
                   userPlanId == constants.USER_NO_PLAN_ID &&
-                  (post.tags[0].name == constants.PRO_POST ||
-                      post.tags[0].name == constants.PREMIUM_POST) ? (
+                  (fisrtTagPlan == constants.PRO_POST ||
+                      fisrtTagPlan == constants.PREMIUM_POST) ? (
                     <div class="card">
                         <div class="card-body">
                             <h2>This post is for paying subscribers only</h2>
@@ -246,7 +248,7 @@ const Post = ({ data, location }) => {
                 ) : apiResponse &&
                   userLoggedIn &&
                   userPlanId == constants.USER_PRO_PLAN_ID &&
-                  post.tags[0].name == constants.PREMIUM_POST ? (
+                  fisrtTagPlan == constants.PREMIUM_POST ? (
                     <div class="card">
                         <div class="card-body">
                             <h2>This post is for premium subscribers only</h2>
@@ -260,8 +262,14 @@ const Post = ({ data, location }) => {
                         </div>
                     </div>
                 ) : (
-                    <div className="loaderImgDiv">
-                        <Image className="loaderImg" src={"/images/loader.gif"} alt="dataLoadImage" />
+                    // <div className="loaderImgDiv">
+                    //     <Image className="loaderImg" src={"/images/loader.gif"} alt="dataLoadImage" />
+                    // </div>
+                    <div className="loadwrap">
+                        <div>
+                            <div className="bounceball"></div>
+                            <div className="loadText">NOW LOADING</div>
+                        </div>
                     </div>
                 )}
             </Layout>

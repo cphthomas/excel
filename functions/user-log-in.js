@@ -47,9 +47,9 @@ async function getUserDetail(connection, email, password) {
         connection.query(
             {
                 sql:
-                    "SELECT * FROM `external_users` WHERE `user_email` = ? AND `user_password` = ?",
+                    "SELECT * FROM `external_users` WHERE `user_email` = ? AND `user_password` = ? AND `book_access` = ?",
                 timeout: 10000,
-                values: [email, password],
+                values: [email, password, process.env.GATSBY_BOOK_ACCESS],
             },
             function (error, results, fields) {
                 if (error) reject(err);
