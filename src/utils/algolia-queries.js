@@ -6,7 +6,7 @@ const indexName = `Book_two`;
 const pageQuery = `{
   pages: allGhostPost(
     filter: {
-        tags: { elemMatch: { name: { eq: "BOOK_TWO" } } }
+        tags: { elemMatch: { name: { eq: "Statistik" } } }
     }
 ) {
     edges {
