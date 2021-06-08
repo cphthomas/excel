@@ -64,9 +64,9 @@ async function updateUser(connection, userEmail, userIp) {
         connection.query(
             {
                 sql:
-                    "UPDATE external_users SET user_ip = ? WHERE user_email = ?",
+                    "UPDATE external_users SET user_ip = ? WHERE user_email = ? AND `book_access` = ?",
                 timeout: 10000,
-                values: [userIp, userEmail],
+                values: [userIp, userEmail, process.env.GATSBY_BOOK_ACCESS],
             },
             function (error, results, fields) {
                 if (error) reject(err);
