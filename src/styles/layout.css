@@ -176,3 +176,12 @@ a:hover {
         width: 320px !important;
     }
 }
+
+#hot-display-license-info {
+    display: none;
+}
+
+#export-file {
+    width: 20%;
+    margin-top: 10px;
+}

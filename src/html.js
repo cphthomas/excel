@@ -25,6 +25,23 @@ export default function HTML(props) {
                     rel="stylesheet"
                     type="text/css"
                 />
+                {/* <link
+                    rel="stylesheet"
+                    type="text/css"
+                    href="https://cdn.jsdelivr.net/npm/handsontable@latest/dist/handsontable.full.min.css"
+                /> */}
+                {/* <link
+                    rel="stylesheet"
+                    type="text/css"
+                    href="https://handsontable.com/static/css/main.css"
+                /> */}
+                {/* <script src="https://cdn.jsdelivr.net/npm/handsontable@latest/dist/handsontable.full.min.js"></script> */}
+                <script src="https://cdn.jsdelivr.net/npm/handsontable@9.0.0/dist/handsontable.full.min.js"></script>
+                <link
+                    type="text/css"
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/handsontable@9.0.0/dist/handsontable.full.min.css"
+                ></link>
                 {props.headComponents}
             </head>
             <body {...props.bodyAttributes}>

@@ -22,6 +22,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CardSetupForm from "./CardSetupForm";
 import customJS from "../../custom.js";
 import customNewJS from "../../newscript.js";
+import handsonJS from "../../handson.js";
 
 // Styles
 import "../../styles/app.css";
@@ -90,6 +91,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     useEffect(async () => {
         customJS();
         customNewJS();
+        handsonJS();
 
         const userEmail = cookies.get("loggedInUser");
         let customerStripeId = "";
