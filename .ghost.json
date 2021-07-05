@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "https://ghost-latest.herokuapp.com",
+    "apiUrl": "https://maskinrum.herokuapp.com",
     "contentApiKey": "da7dc8d4c470165063a68ac023"
   },
   "production": {
-    "apiUrl": "https://ghost-latest.herokuapp.com",
+    "apiUrl": "https://maskinrum.herokuapp.com",
     "contentApiKey": "da7dc8d4c470165063a68ac023"
   }
 }
