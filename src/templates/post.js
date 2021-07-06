@@ -10,7 +10,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import * as tocbot from "tocbot";
 import { constants } from "../utils/constants";
 import { Image } from "react-bootstrap";
-
+import BootstrapSwitchButton from "bootstrap-switch-button-react";
+// import { useSpeechSynthesis } from "react-speech-kit";
+import Speech from "speak-tts";
+import postScript from "../post-script.js";
 /**
  * Single post view (/:slug)
  *
@@ -18,11 +21,39 @@ import { Image } from "react-bootstrap";
  *
  */
 const Post = ({ data, location }) => {
+    //const { speak } = useSpeechSynthesis();
+    let speech;
+    if (typeof window !== "undefined") {
+        speech = new Speech();
+        speech
+            .init({
+                volume: 0.5,
+                lang: "da-DK",
+                rate: 1,
+                pitch: 1,
+                //'voice':'Google UK English Male',
+                //'splitSentences': false,
+                listeners: {
+                    onvoiceschanged: (voices) => {
+                        //console.log("Voices changed", voices);
+                    },
+                },
+            })
+            .then((data) => {
+                console.log("Speech is ready", data);
+                _addVoicesList(data.voices);
+                _prepareSpeakButton(speech);
+            })
+            .catch((e) => {
+                console.error("An error occured while initializing : ", e);
+            });
+    }
+
     const post = data.ghostPost;
+
     if (!post) {
         const isBrowser = () => typeof window !== "undefined";
         isBrowser() && window.location.replace(process.env.GATSBY_SITE_URL);
-        //window.location.href = process.env.GATSBY_SITE_URL;
     }
     const fisrtTagPlan = post?.tags[0] ? post.tags[0].name : "";
     //const secondTagBookAccess = post.tags[1] ? post.tags[1].name : "";
@@ -32,8 +63,11 @@ const Post = ({ data, location }) => {
     const [planType, setPlanType] = useState("");
     const [email, setEmail] = useState("");
     const [customerId, setCustomerId] = useState("");
+    const [speechTextEnable, setSpeechTextEnable] = useState(false);
 
     useEffect(async () => {
+        postScript();
+
         const cookies = new Cookies();
         if (cookies.get("loggedInUser")) {
             const userEmail = cookies.get("loggedInUser");
@@ -148,6 +182,59 @@ const Post = ({ data, location }) => {
             });
     }
 
+    function enableDisableSpeech(checked) {
+        setSpeechTextEnable(checked);
+        if (checked) {
+        } else {
+            console.log(checked);
+            speech.cancel();
+        }
+    }
+
+    async function selectedText() {
+        // window.getSelection().toString()
+        //     ? console.log(window.getSelection().toString())
+        //     : null;
+        let textToSpeech = "";
+        if (typeof window !== "undefined") {
+            textToSpeech = window.getSelection().toString();
+        }
+        console.log(speechTextEnable);
+        //speak({ text: textToSpeech });
+        if (speechTextEnable) {
+            speech
+                .speak({
+                    text: textToSpeech,
+                    queue: false,
+                    listeners: {
+                        onstart: () => {
+                            console.log("Start utterance");
+                        },
+                        onend: () => {
+                            console.log("End utterance");
+                        },
+                        onresume: () => {
+                            console.log("Resume utterance");
+                        },
+                        onboundary: (event) => {
+                            console.log(
+                                event.name +
+                                    " boundary reached after " +
+                                    event.elapsedTime +
+                                    " milliseconds."
+                            );
+                        },
+                    },
+                })
+                .then((data) => {
+                    console.log("Success !", data);
+                })
+                .catch((e) => {
+                    console.error("An error occurred :", e);
+                });
+        }
+    }
+
     return (
         <div>
             <MetaData data={data} location={location} type="article" />
@@ -161,6 +248,14 @@ const Post = ({ data, location }) => {
                     (userPlanId == constants.USER_PRO_PLAN_ID &&
                         fisrtTagPlan == constants.PRO_POST)) ? (
                     <article className="content">
+                        <Helmet>
+                            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+                            <script
+                                id="MathJax-script"
+                                async
+                                src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                            ></script>
+                        </Helmet>
                         {post.feature_image ? (
                             <figure className="post-feature-image">
                                 <img
@@ -169,6 +264,18 @@ const Post = ({ data, location }) => {
                                 />
                             </figure>
                         ) : null}
+                        <div className="switchBtn">
+                            <BootstrapSwitchButton
+                                checked={speechTextEnable}
+                                onstyle="dark"
+                                offstyle="dark"
+                                style="border"
+                                onlabel="Speech"
+                                offlabel="No Speech"
+                                onChange={enableDisableSpeech}
+                                style={{ border: "none" }}
+                            />
+                        </div>
                         <aside className="toc-container">
                             <div className="toc"></div>
                         </aside>
@@ -179,6 +286,7 @@ const Post = ({ data, location }) => {
                                 dangerouslySetInnerHTML={{
                                     __html: post.html,
                                 }}
+                                onMouseUpCapture={selectedText}
                             />
                         </section>
                     </article>
@@ -188,7 +296,9 @@ const Post = ({ data, location }) => {
                       fisrtTagPlan == constants.PREMIUM_POST) ? (
                     <div class="card">
                         <div class="card-body">
-                            <h2>This post is for paying subscribers only</h2>
+                            <h2 className="whiteClr">
+                                This post is for paying subscribers only
+                            </h2>
                             <p className="font-18">
                                 Already have an account?{" "}
                                 <a href="/login">Sign in</a>
@@ -202,7 +312,9 @@ const Post = ({ data, location }) => {
                       fisrtTagPlan == constants.PREMIUM_POST) ? (
                     <div class="card">
                         <div class="card-body">
-                            <h2>This post is for paying subscribers only</h2>
+                            <h2 className="whiteClr">
+                                This post is for paying subscribers only
+                            </h2>
                             <div className="form-group">
                                 <label className="font-size-15">
                                     Choose your subscription
@@ -256,7 +368,9 @@ const Post = ({ data, location }) => {
                   fisrtTagPlan == constants.PREMIUM_POST ? (
                     <div class="card">
                         <div class="card-body">
-                            <h2>This post is for premium subscribers only</h2>
+                            <h2 className="whiteClr">
+                                This post is for premium subscribers only
+                            </h2>
                             <button
                                 type="submit"
                                 className="btn btn-primary btn-premiume"
@@ -267,9 +381,6 @@ const Post = ({ data, location }) => {
                         </div>
                     </div>
                 ) : (
-                    // <div className="loaderImgDiv">
-                    //     <Image className="loaderImg" src={"/images/loader.gif"} alt="dataLoadImage" />
-                    // </div>
                     <div className="loadwrap">
                         <div>
                             <div className="bounceball"></div>

@@ -34,6 +34,10 @@
 .nav-item a {
     font-size: 12px;
 }
+.chapterBtn {
+    width: 65px;
+    border: none !important;
+}
 .accountLi {
     margin: unset !important;
 }
@@ -184,4 +188,46 @@ a:hover {
 #export-file {
     width: 20%;
     margin-top: 10px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+.loginBtn {
+    text-decoration: none;
+}
+
+.site-foot-nav {
+    justify-content: center !important;
+}
+
+.site-foot a {
+    display: block;
+    width: 70px;
+    background-color: rgba(000, 000, 000, 1) !important;
+    text-align: center;
+    color: white !important;
+    line-height: 25px;
+    text-decoration: none;
+}
+
+.switch-handle {
+    display: none !important;
+}
+
+.switch {
+    position: fixed !important;
+    bottom: 15px !important;
+    right: 60px !important;
+    z-index: 1;
+    border: unset !important;
+    border-radius: 0px !important;
+}
+
+.switch-on,
+.switch-off {
+    font-size: 13px !important;
+    font-family: sans-serif !important;
+    background-color: black !important;
 }

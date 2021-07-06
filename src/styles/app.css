@@ -1028,10 +1028,15 @@ h6 {
 /* ---------------------------------------------------------- */
 
 .site-foot {
-    padding: 20px 0 40px 0;
+    padding: 10px 0 5px 0;
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.3rem;
-    background: var(--color-base);
+    /* background: var(--color-base); */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    /* opacity: 0.4; */
+    background-color: rgba(000, 0, 0, 0.5);
 }
 
 .site-foot-nav {

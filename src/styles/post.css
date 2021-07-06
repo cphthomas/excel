@@ -63,7 +63,7 @@ h4::before,
 h5::before,
 h6::before {
     display: block;
-    content: " ";
+    /* content: " "; */
     height: 30px;
     margin-top: 15px;
     visibility: hidden;
@@ -135,4 +135,20 @@ h6::before {
     100% {
         top: 0;
     }
+}
+
+.whiteClr {
+    color: white;
+}
+
+table {
+    font-family: var(--bs-font-sans-serif);
+}
+
+.switchBtn {
+    text-align: center;
+}
+
+.switch.btn {
+    min-width: 9.7rem !important;
 }
