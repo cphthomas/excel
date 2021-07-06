@@ -20,7 +20,6 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CardSetupForm from "./CardSetupForm";
-import visJS from "../../vis.js";
 import customNewJS from "../../newscript.js";
 import handsonJS from "../../handson.js";
 import amplitudeJS from "../../amplitude.js";
@@ -91,7 +90,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     }
 
     useEffect(async () => {
-        visJS();
         customNewJS();
         handsonJS();
         amplitudeJS();
