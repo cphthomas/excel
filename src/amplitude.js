@@ -126,52 +126,54 @@ function amplitudePlayerScript() {
                     artist: "Sonny Kristoffersen",
                 album: "Finansjura",
                 url:
-                    "https://www.dropbox.com/s/gpq1cdx74t6cphp/Podcast%20eksamensopgave%2011.3.%20Travlhed%20i%20kreditafdelingen.m4a?dl=0",
+                    "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                 cover_art_url:
                     "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
             },
         ],
         playlists: {
-            emancipator: {
+            statpodcasts: {
                 songs: [
                     {
-                        name:
-                            "DREksamensopgave 9.3. Tømrermester Bertil Jaobsen og Tina Jensen",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        name: "1. Intro",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
                         url:
-                        "https://www.dropbox.com/s/gpq1cdx74t6cphp/Podcast%20eksamensopgave%2011.3.%20Travlhed%20i%20kreditafdelingen.m4a?raw=1",
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682955/podcasts/Statistik%20Podcasts/1._intro_soxakt.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "Dusk To Dawn",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        name: "2 Variable",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
                         url:
-                        "https://www.dropbox.com/s/gpq1cdx74t6cphp/Podcast%20eksamensopgave%2011.3.%20Travlhed%20i%20kreditafdelingen.m4a?raw=1",
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682925/podcasts/Statistik%20Podcasts/2._Variable_ykgfat.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "Eksamensopgave 9.4. Lottogevinsten",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        name: "3. Beskrivende statistik",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
                         url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1623936133/podcasts/Poscast_til_eksamensopgave_9.4._Lottogevinsten_mkzmxp.m4a",
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682981/podcasts/Statistik%20Podcasts/3._Beskrivende_statistik_pa1ulq.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                 ],
             },
+
+
+
             trip_hop: {
                 songs: [
                     {
-                        name: "Jura Front",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        name: "Player 2 front pod1",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
                         url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1623936135/podcasts/Poscast_til_eksamensopgave_6.1._Ejendomsm%C3%A6glerens_st%C3%B8vler_gujuq8.m4a",
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -180,7 +182,7 @@ function amplitudePlayerScript() {
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura",
                         url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1623936139/podcasts/Poscast_til_eksamensopgave_7.1._B%C3%B8rge_brugtvognsforhandler_jwsb7s.m4a",
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -188,7 +190,7 @@ function amplitudePlayerScript() {
                         name: "Anvil",
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura",
-                        url: "https://521dimensions.com/song/LORN - ANVIL.mp3",
+                        url: "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
