@@ -191,6 +191,51 @@ function amplitudePlayerScript() {
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
+                    {
+                        name: "4. Normalfordelingen",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682984/podcasts/Statistik%20Podcasts/4._Normalfordelingen_vt9tpl.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "5. Konfidensintervaller kvantitative variable",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682961/podcasts/Statistik%20Podcasts/5._Konfidensintervaller_kvantitative_variable_iajeib.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "6.0 Hypotesetests kvantitative variable",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682996/podcasts/Statistik%20Podcasts/6.0._Hypotesetests_kvantitative_variable_gbuoox.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "6.1 Type 1 og type 2 fejl",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682936/podcasts/Statistik%20Podcasts/6.1_Type_1_og_type_2_fejl_mnarnn.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "7.0 Konfidensinterval 1 andel",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682935/podcasts/Statistik%20Podcasts/7.0_Konfidensinterval_1_andel_b63ak7.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
                 ],
             },
 
