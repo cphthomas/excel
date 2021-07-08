@@ -237,7 +237,16 @@ function amplitudePlayerScript() {
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "8 Test af 2 andele",
+                        name: "7.1 Test 1 andel",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682963/podcasts/Statistik%20Podcasts/7.1_Test_1_andel_sahrvy.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "8. Test af 2 andele",
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
@@ -246,7 +255,7 @@ function amplitudePlayerScript() {
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "9 Test af 2 middelværdier",
+                        name: "9. Test af 2 middelværdier",
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
