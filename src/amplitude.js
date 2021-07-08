@@ -135,33 +135,65 @@ function amplitudePlayerScript() {
             jurapodcast1: {
                 songs: [
                     {
-                        name: "Player 2 front pod1",
-                        artist: "Thomas Petersen",
-                        album: "Statistik",
+                        name: "SANG1 pod1",
+                        artist: "Sonny Kristoffersen",
+                        album: "Finansjura1",
                         url:
                         "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "Eksamensopgave 7.1. Børge brugtvognsforhandler",
+                        name: "SANG1 pod1",
                         artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        album: "Finansjura1",
                         url:
                         "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "Anvil",
+                        name: "SANG1 pod1",
                         artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        album: "Finansjura1",
                         url: "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                 ],
             },
+
+            jurapodcast2: {
+                songs: [
+                    {
+                        name: "SANG1 pod2",
+                        artist: "Sonny Kristoffersen",
+                        album: "Finansjura2",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "SANG2 pod2",
+                        artist: "Sonny Kristoffersen",
+                        album: "Finansjura2",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "SANG3 pod2",
+                        artist: "Sonny Kristoffersen",
+                        album: "Finansjura2",
+                        url: "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                ],
+            },
+            
             statpodcasts: {
                 songs: [
                     {
