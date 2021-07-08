@@ -144,7 +144,7 @@ function amplitudePlayerScript() {
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "SANG1 pod1",
+                        name: "SANG2 pod1",
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura1",
                         url:
@@ -153,7 +153,7 @@ function amplitudePlayerScript() {
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "SANG1 pod1",
+                        name: "SANG3 pod1",
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura1",
                         url: "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
