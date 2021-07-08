@@ -26,7 +26,14 @@ function waitForElement(querySelector, timeout = 0) {
 }
 
 function makeAnchorTargetBlank() {
-    $(".content-body a").attr("target", "_blank");
+    //$(".content-body a").attr("target", "_blank");
+    var allAnchors = $(".content-body a");
+    $(allAnchors).each(function (index) {
+        var href = $(this).attr("href");
+        if (typeof href != "undefined" && !href.includes("#")) {
+            $(this).attr("target", "_blank");
+        }
+    });
 }
 
 export default postScript;
