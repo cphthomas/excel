@@ -126,74 +126,280 @@ function amplitudePlayerScript() {
                     artist: "Sonny Kristoffersen",
                 album: "Finansjura",
                 url:
-                    "https://www.dropbox.com/s/gpq1cdx74t6cphp/Podcast%20eksamensopgave%2011.3.%20Travlhed%20i%20kreditafdelingen.m4a?dl=0",
+                    "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                 cover_art_url:
                     "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
             },
         ],
         playlists: {
-            emancipator: {
+            jurapodcast1: {
                 songs: [
                     {
-                        name:
-                            "DREksamensopgave 9.3. Tømrermester Bertil Jaobsen og Tina Jensen",
+                        name: "SANG1 pod1",
                         artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        album: "Finansjura1",
                         url:
-                        "https://www.dropbox.com/s/gpq1cdx74t6cphp/Podcast%20eksamensopgave%2011.3.%20Travlhed%20i%20kreditafdelingen.m4a?raw=1",
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "Dusk To Dawn",
+                        name: "SANG2 pod1",
                         artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        album: "Finansjura1",
                         url:
-                        "https://www.dropbox.com/s/gpq1cdx74t6cphp/Podcast%20eksamensopgave%2011.3.%20Travlhed%20i%20kreditafdelingen.m4a?raw=1",
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "Eksamensopgave 9.4. Lottogevinsten",
+                        name: "SANG3 pod1",
                         artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
-                        url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1623936133/podcasts/Poscast_til_eksamensopgave_9.4._Lottogevinsten_mkzmxp.m4a",
+                        album: "Finansjura1",
+                        url: "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                 ],
             },
-            trip_hop: {
+
+            jurapodcast2: {
                 songs: [
                     {
-                        name: "Jura Front",
+                        name: "SANG1 pod2",
                         artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        album: "Finansjura2",
                         url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1623936135/podcasts/Poscast_til_eksamensopgave_6.1._Ejendomsm%C3%A6glerens_st%C3%B8vler_gujuq8.m4a",
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "Eksamensopgave 7.1. Børge brugtvognsforhandler",
+                        name: "SANG2 pod2",
                         artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
+                        album: "Finansjura2",
                         url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1623936139/podcasts/Poscast_til_eksamensopgave_7.1._B%C3%B8rge_brugtvognsforhandler_jwsb7s.m4a",
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                     {
-                        name: "Anvil",
+                        name: "SANG3 pod2",
                         artist: "Sonny Kristoffersen",
-                        album: "Finansjura",
-                        url: "https://521dimensions.com/song/LORN - ANVIL.mp3",
+                        album: "Finansjura2",
+                        url: "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                 ],
             },
+            
+            statpodcasts: {
+                songs: [
+                    {
+                        name: "1. Intro",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682955/podcasts/Statistik%20Podcasts/1._intro_soxakt.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "2 Variable",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682925/podcasts/Statistik%20Podcasts/2._Variable_ykgfat.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "3. Beskrivende statistik",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682981/podcasts/Statistik%20Podcasts/3._Beskrivende_statistik_pa1ulq.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "4. Normalfordelingen",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682984/podcasts/Statistik%20Podcasts/4._Normalfordelingen_vt9tpl.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "5. Konfidensintervaller kvantitative variable",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682961/podcasts/Statistik%20Podcasts/5._Konfidensintervaller_kvantitative_variable_iajeib.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "6.0 Hypotesetests kvantitative variable",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682996/podcasts/Statistik%20Podcasts/6.0._Hypotesetests_kvantitative_variable_gbuoox.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "6.1 Type 1 og type 2 fejl",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682936/podcasts/Statistik%20Podcasts/6.1_Type_1_og_type_2_fejl_mnarnn.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "7.0 Konfidensinterval 1 andel",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682935/podcasts/Statistik%20Podcasts/7.0_Konfidensinterval_1_andel_b63ak7.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "7.1 Test 1 andel",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682963/podcasts/Statistik%20Podcasts/7.1_Test_1_andel_sahrvy.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "8. Test af 2 andele",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682939/podcasts/Statistik%20Podcasts/8._Test_af_2_andele_eswaay.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "9. Test af 2 middelværdier",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682938/podcasts/Statistik%20Podcasts/9._Test_af_2_middelv%C3%A6rdier_yzfx30.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "10. Korrelation",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682974/podcasts/Statistik%20Podcasts/10._Korrelation_jxkrva.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "11.1 Simpel lineær regression",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682981/podcasts/Statistik%20Podcasts/11.1_Simpel_line%C3%A6r_regression_m5lc5o.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "11.2 Multipel lineær regression",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625683002/podcasts/Statistik%20Podcasts/11.2_Multipel_line%C3%A6r_regression_wv8clc.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "11.3 Lineær regression forudsætninger",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682970/podcasts/Statistik%20Podcasts/11.3_Line%C3%A6r_regression_foruds%C3%A6tninger_rgcqlq.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "15 Stikprøveudvælgelse",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682970/podcasts/Statistik%20Podcasts/15._Stikpr%C3%B8veudv%C3%A6lgelse_qj6ksy.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "17.1 Chi i anden tests",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682992/podcasts/Statistik%20Podcasts/17.1_Chi_i_anden_tests_ivibvs.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "17.2 Goodness of fit tests",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682976/podcasts/Statistik%20Podcasts/17.2_Goodness_of_fit_test_xlfyxu.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "18 Anova",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682971/podcasts/Statistik%20Podcasts/18._ANOVA_dtpcel.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "20 Faktoranalyse",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682960/podcasts/Statistik%20Podcasts/20._Faktoranalyse_brwlr8.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "21 Klyngeanalyse",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682956/podcasts/Statistik%20Podcasts/21._Klyngeanalyse_edcccm.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                    {
+                        name: "22 ARIMA",
+                        artist: "Thomas Petersen",
+                        album: "Statistik",
+                        url:
+                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682977/podcasts/Statistik%20Podcasts/22._ARIMA_mpmu54.m4a",
+                        cover_art_url:
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    },
+                ],
+            },
+
+
+
+            
         },
     });
 }
