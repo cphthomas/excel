@@ -462,6 +462,7 @@ h6 {
     line-height: 1.15;
     font-weight: 700;
     text-rendering: optimizeLegibility;
+    padding-top: 50px;
 }
 
 h1 {

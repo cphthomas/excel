@@ -67,8 +67,15 @@ const Post = ({ data, location }) => {
     const [speechTextEnable, setSpeechTextEnable] = useState(false);
 
     useEffect(async () => {
-        postScript();
         visJS();
+        postScript();
+
+        tocbot.init({
+            tocSelector: ".toc",
+            contentSelector: ".content-body",
+            hasInnerContainers: true,
+        });
+        tocbot.refresh();
 
         const cookies = new Cookies();
         if (cookies.get("loggedInUser")) {
@@ -135,7 +142,7 @@ const Post = ({ data, location }) => {
                 }
             });
         }
-    }, []);
+    }, [[apiResponse]]);
 
     function validateForm() {
         return planType.length > 0;
