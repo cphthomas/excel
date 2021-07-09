@@ -3,6 +3,12 @@ const postScript = () => {
         .then(function () {
             console.log("content-body element is loaded.. do stuff");
             makeAnchorTargetBlank();
+            tocbot.init({
+                tocSelector: ".toc",
+                contentSelector: ".content-body",
+                hasInnerContainers: true,
+            });
+            tocbot.refresh();
         })
         .catch(() => {
             console.log("content-body element did not load in 8 seconds");

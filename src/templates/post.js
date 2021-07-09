@@ -70,12 +70,12 @@ const Post = ({ data, location }) => {
         visJS();
         postScript();
 
-        tocbot.init({
-            tocSelector: ".toc",
-            contentSelector: ".content-body",
-            hasInnerContainers: true,
-        });
-        tocbot.refresh();
+        // tocbot.init({
+        //     tocSelector: ".toc",
+        //     contentSelector: ".content-body",
+        //     hasInnerContainers: true,
+        // });
+        // tocbot.refresh();
 
         const cookies = new Cookies();
         if (cookies.get("loggedInUser")) {
@@ -100,12 +100,12 @@ const Post = ({ data, location }) => {
                         cookies.remove("loggedInUserIpAddress");
                     }
                 });
-            tocbot.init({
-                tocSelector: ".toc",
-                contentSelector: ".content-body",
-                hasInnerContainers: true,
-            });
-            tocbot.refresh();
+            // tocbot.init({
+            //     tocSelector: ".toc",
+            //     contentSelector: ".content-body",
+            //     hasInnerContainers: true,
+            // });
+            // tocbot.refresh();
         } else {
             setApiResponse(true);
         }
