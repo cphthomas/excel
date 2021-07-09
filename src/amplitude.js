@@ -30,6 +30,38 @@ function waitForElement(querySelector, timeout = 0) {
 }
 
 function amplitudePlayerScript() {
+    /* one single image for all playlist & change image on play pause*/
+    $(document).on("click", ".amplitude-playing", function () {
+        var playlist = $(this).data("amplitude-playlist");
+        var imgTags = $(".main-album-art");
+        $(imgTags).each(function (index) {
+            var imgTagData = $(this).data("amplitude-playlist");
+            if (imgTagData == playlist) {
+                $(this).attr(
+                    "src",
+                    "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif"
+                );
+            } else {
+                $(this).attr(
+                    "src",
+                    "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg"
+                );
+            }
+        });
+    });
+    $(document).on("click", ".amplitude-paused", function () {
+        var playlist = $(this).data("amplitude-playlist");
+        var imgTags = $(".main-album-art");
+        $(imgTags).each(function (index) {
+            var imgTagData = $(this).data("amplitude-playlist");
+            if (imgTagData == playlist) {
+                $(this).attr(
+                    "src",
+                    "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg"
+                );
+            }
+        });
+    });
     document
         .getElementsByClassName("show-playlist")[0]
         .addEventListener("click", function () {
@@ -86,36 +118,36 @@ function amplitudePlayerScript() {
             ).style.display = "none";
         });
 
-        document
+    document
         .getElementById("speedTextPlayer1")
         .addEventListener("click", function () {
-          var currentInnerText = parseFloat(
-            document.getElementById("speedUpText").innerHTML
-          );
-          console.log(currentInnerText);
-          if (currentInnerText == 1) {
-            document.getElementById("speedUpText").innerHTML = "1.5";
-          } else if (currentInnerText == 1.5) {
-            document.getElementById("speedUpText").innerHTML = "2";
-          } else if (currentInnerText == 2) {
-            document.getElementById("speedUpText").innerHTML = "1";
-          }
+            var currentInnerText = parseFloat(
+                document.getElementById("speedUpText").innerHTML
+            );
+            console.log(currentInnerText);
+            if (currentInnerText == 1) {
+                document.getElementById("speedUpText").innerHTML = "1.5";
+            } else if (currentInnerText == 1.5) {
+                document.getElementById("speedUpText").innerHTML = "2";
+            } else if (currentInnerText == 2) {
+                document.getElementById("speedUpText").innerHTML = "1";
+            }
         });
 
-      document
+    document
         .getElementById("speedTextPlayer2")
         .addEventListener("click", function () {
-          var currentInnerText = parseFloat(
-            document.getElementById("speedUpText2").innerHTML
-          );
-          console.log(currentInnerText);
-          if (currentInnerText == 1) {
-            document.getElementById("speedUpText2").innerHTML = "1.5";
-          } else if (currentInnerText == 1.5) {
-            document.getElementById("speedUpText2").innerHTML = "2";
-          } else if (currentInnerText == 2) {
-            document.getElementById("speedUpText2").innerHTML = "1";
-          }
+            var currentInnerText = parseFloat(
+                document.getElementById("speedUpText2").innerHTML
+            );
+            console.log(currentInnerText);
+            if (currentInnerText == 1) {
+                document.getElementById("speedUpText2").innerHTML = "1.5";
+            } else if (currentInnerText == 1.5) {
+                document.getElementById("speedUpText2").innerHTML = "2";
+            } else if (currentInnerText == 2) {
+                document.getElementById("speedUpText2").innerHTML = "1";
+            }
         });
 
     Amplitude.init({
@@ -123,12 +155,12 @@ function amplitudePlayerScript() {
             {
                 name:
                     "DREksamensopgave 9.7. Knudsen Properties v. Dennis Knudsen",
-                    artist: "Sonny Kristoffersen",
+                artist: "Sonny Kristoffersen",
                 album: "Finansjura",
                 url:
                     "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                 cover_art_url:
-                    "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                    "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
             },
         ],
         playlists: {
@@ -139,16 +171,16 @@ function amplitudePlayerScript() {
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura1",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
-                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
+                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
                     },
                     {
                         name: "SANG2 pod1",
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura1",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -156,7 +188,8 @@ function amplitudePlayerScript() {
                         name: "SANG3 pod1",
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura1",
-                        url: "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                        url:
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -170,7 +203,7 @@ function amplitudePlayerScript() {
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura2",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -179,7 +212,7 @@ function amplitudePlayerScript() {
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura2",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -187,13 +220,14 @@ function amplitudePlayerScript() {
                         name: "SANG3 pod2",
                         artist: "Sonny Kristoffersen",
                         album: "Finansjura2",
-                        url: "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                        url:
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                 ],
             },
-            
+
             statpodcasts: {
                 songs: [
                     {
@@ -201,7 +235,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682955/podcasts/Statistik%20Podcasts/1._intro_soxakt.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682955/podcasts/Statistik%20Podcasts/1._intro_soxakt.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -210,7 +244,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682925/podcasts/Statistik%20Podcasts/2._Variable_ykgfat.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682925/podcasts/Statistik%20Podcasts/2._Variable_ykgfat.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -219,7 +253,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682981/podcasts/Statistik%20Podcasts/3._Beskrivende_statistik_pa1ulq.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682981/podcasts/Statistik%20Podcasts/3._Beskrivende_statistik_pa1ulq.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -228,7 +262,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682984/podcasts/Statistik%20Podcasts/4._Normalfordelingen_vt9tpl.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682984/podcasts/Statistik%20Podcasts/4._Normalfordelingen_vt9tpl.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -237,7 +271,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682961/podcasts/Statistik%20Podcasts/5._Konfidensintervaller_kvantitative_variable_iajeib.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682961/podcasts/Statistik%20Podcasts/5._Konfidensintervaller_kvantitative_variable_iajeib.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -246,7 +280,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682996/podcasts/Statistik%20Podcasts/6.0._Hypotesetests_kvantitative_variable_gbuoox.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682996/podcasts/Statistik%20Podcasts/6.0._Hypotesetests_kvantitative_variable_gbuoox.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -255,7 +289,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682936/podcasts/Statistik%20Podcasts/6.1_Type_1_og_type_2_fejl_mnarnn.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682936/podcasts/Statistik%20Podcasts/6.1_Type_1_og_type_2_fejl_mnarnn.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -264,7 +298,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682935/podcasts/Statistik%20Podcasts/7.0_Konfidensinterval_1_andel_b63ak7.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682935/podcasts/Statistik%20Podcasts/7.0_Konfidensinterval_1_andel_b63ak7.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -273,7 +307,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682963/podcasts/Statistik%20Podcasts/7.1_Test_1_andel_sahrvy.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682963/podcasts/Statistik%20Podcasts/7.1_Test_1_andel_sahrvy.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -282,7 +316,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682939/podcasts/Statistik%20Podcasts/8._Test_af_2_andele_eswaay.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682939/podcasts/Statistik%20Podcasts/8._Test_af_2_andele_eswaay.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -291,7 +325,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682938/podcasts/Statistik%20Podcasts/9._Test_af_2_middelv%C3%A6rdier_yzfx30.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682938/podcasts/Statistik%20Podcasts/9._Test_af_2_middelv%C3%A6rdier_yzfx30.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -300,7 +334,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682974/podcasts/Statistik%20Podcasts/10._Korrelation_jxkrva.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682974/podcasts/Statistik%20Podcasts/10._Korrelation_jxkrva.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -309,7 +343,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682981/podcasts/Statistik%20Podcasts/11.1_Simpel_line%C3%A6r_regression_m5lc5o.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682981/podcasts/Statistik%20Podcasts/11.1_Simpel_line%C3%A6r_regression_m5lc5o.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -318,7 +352,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625683002/podcasts/Statistik%20Podcasts/11.2_Multipel_line%C3%A6r_regression_wv8clc.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625683002/podcasts/Statistik%20Podcasts/11.2_Multipel_line%C3%A6r_regression_wv8clc.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -327,7 +361,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682970/podcasts/Statistik%20Podcasts/11.3_Line%C3%A6r_regression_foruds%C3%A6tninger_rgcqlq.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682970/podcasts/Statistik%20Podcasts/11.3_Line%C3%A6r_regression_foruds%C3%A6tninger_rgcqlq.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -336,7 +370,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682970/podcasts/Statistik%20Podcasts/15._Stikpr%C3%B8veudv%C3%A6lgelse_qj6ksy.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682970/podcasts/Statistik%20Podcasts/15._Stikpr%C3%B8veudv%C3%A6lgelse_qj6ksy.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -345,7 +379,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682992/podcasts/Statistik%20Podcasts/17.1_Chi_i_anden_tests_ivibvs.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682992/podcasts/Statistik%20Podcasts/17.1_Chi_i_anden_tests_ivibvs.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -354,7 +388,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682976/podcasts/Statistik%20Podcasts/17.2_Goodness_of_fit_test_xlfyxu.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682976/podcasts/Statistik%20Podcasts/17.2_Goodness_of_fit_test_xlfyxu.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -363,7 +397,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682971/podcasts/Statistik%20Podcasts/18._ANOVA_dtpcel.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682971/podcasts/Statistik%20Podcasts/18._ANOVA_dtpcel.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -372,7 +406,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682960/podcasts/Statistik%20Podcasts/20._Faktoranalyse_brwlr8.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682960/podcasts/Statistik%20Podcasts/20._Faktoranalyse_brwlr8.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -381,7 +415,7 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682956/podcasts/Statistik%20Podcasts/21._Klyngeanalyse_edcccm.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682956/podcasts/Statistik%20Podcasts/21._Klyngeanalyse_edcccm.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
@@ -390,16 +424,12 @@ function amplitudePlayerScript() {
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
-                        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682977/podcasts/Statistik%20Podcasts/22._ARIMA_mpmu54.m4a",
+                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625682977/podcasts/Statistik%20Podcasts/22._ARIMA_mpmu54.m4a",
                         cover_art_url:
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624045659/podcastgif/giphy_1_rrpccq.gif",
                     },
                 ],
             },
-
-
-
-            
         },
     });
 }
