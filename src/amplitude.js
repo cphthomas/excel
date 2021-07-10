@@ -62,6 +62,7 @@ function amplitudePlayerScript() {
             }
         });
     });
+
     document
         .getElementsByClassName("show-playlist")[0]
         .addEventListener("click", function () {
@@ -91,143 +92,33 @@ function amplitudePlayerScript() {
         });
 
     document
-        .getElementsByClassName("show-playlist")[1]
-        .addEventListener("click", function () {
-            document
-                .getElementById("white-player-playlist-container2")
-                .classList.remove("slide-out-top");
-            document
-                .getElementById("white-player-playlist-container2")
-                .classList.add("slide-in-top");
-            document.getElementById(
-                "white-player-playlist-container2"
-            ).style.display = "block";
-        });
-
-    document
-        .getElementsByClassName("close-playlist")[1]
-        .addEventListener("click", function () {
-            document
-                .getElementById("white-player-playlist-container2")
-                .classList.remove("slide-in-top");
-            document
-                .getElementById("white-player-playlist-container2")
-                .classList.add("slide-out-top");
-            document.getElementById(
-                "white-player-playlist-container2"
-            ).style.display = "none";
-        });
-
-    document
-        .getElementById("speedTextPlayer1")
+        .getElementById("speedTextPlayer3")
         .addEventListener("click", function () {
             var currentInnerText = parseFloat(
-                document.getElementById("speedUpText").innerHTML
+                document.getElementById("speedUpText3").innerHTML
             );
             console.log(currentInnerText);
             if (currentInnerText == 1) {
-                document.getElementById("speedUpText").innerHTML = "1.5";
+                document.getElementById("speedUpText3").innerHTML = "1.5";
             } else if (currentInnerText == 1.5) {
-                document.getElementById("speedUpText").innerHTML = "2";
+                document.getElementById("speedUpText3").innerHTML = "2";
             } else if (currentInnerText == 2) {
-                document.getElementById("speedUpText").innerHTML = "1";
-            }
-        });
-
-    document
-        .getElementById("speedTextPlayer2")
-        .addEventListener("click", function () {
-            var currentInnerText = parseFloat(
-                document.getElementById("speedUpText2").innerHTML
-            );
-            console.log(currentInnerText);
-            if (currentInnerText == 1) {
-                document.getElementById("speedUpText2").innerHTML = "1.5";
-            } else if (currentInnerText == 1.5) {
-                document.getElementById("speedUpText2").innerHTML = "2";
-            } else if (currentInnerText == 2) {
-                document.getElementById("speedUpText2").innerHTML = "1";
+                document.getElementById("speedUpText3").innerHTML = "1";
             }
         });
 
     Amplitude.init({
         songs: [
             {
-                name:
-                    "DREksamensopgave 9.7. Knudsen Properties v. Dennis Knudsen",
-                artist: "Sonny Kristoffersen",
-                album: "Finansjura",
-                url:
-                    "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
+                name: "Sang alene",
+                artist: "Sang alene",
+                album: "Soon It Will Be Cold Enough",
+                url: "https://521dimensions.com/song/FirstSnow-Emancipator.mp3",
                 cover_art_url:
-                    "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
+                    "https://521dimensions.com/img/open-source/amplitudejs/album-art/soon-it-will-be-cold-enough.jpg",
             },
         ],
         playlists: {
-            jurapodcast1: {
-                songs: [
-                    {
-                        name: "SANG1 pod1",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura1",
-                        url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
-                        cover_art_url:
-                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
-                    },
-                    {
-                        name: "SANG2 pod1",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura1",
-                        url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
-                        cover_art_url:
-                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
-                    },
-                    {
-                        name: "SANG3 pod1",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura1",
-                        url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
-                        cover_art_url:
-                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
-                    },
-                ],
-            },
-
-            jurapodcast2: {
-                songs: [
-                    {
-                        name: "SANG1 pod2",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura2",
-                        url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
-                        cover_art_url:
-                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
-                    },
-                    {
-                        name: "SANG2 pod2",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura2",
-                        url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
-                        cover_art_url:
-                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
-                    },
-                    {
-                        name: "SANG3 pod2",
-                        artist: "Sonny Kristoffersen",
-                        album: "Finansjura2",
-                        url:
-                            "https://res.cloudinary.com/hndu2f8jv/video/upload/v1625659665/podcasts/Jura%20Eksamens%20Podcast/podcast_eksamensopgave_3_1_borde_og_stole_as_unfeyo.mp3",
-                        cover_art_url:
-                            "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
-                    },
-                ],
-            },
-
             statpodcasts: {
                 songs: [
                     {
@@ -357,7 +248,7 @@ function amplitudePlayerScript() {
                             "https://res.cloudinary.com/hndu2f8jv/image/upload/v1624048525/podcastgif/spole_aelus7.jpg",
                     },
                     {
-                        name: "11.3 Lineær regression forudsætninger",
+                        name: "11.3 Lineær regression forudsaetninger",
                         artist: "Thomas Petersen",
                         album: "Statistik",
                         url:
