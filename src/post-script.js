@@ -1,3 +1,4 @@
+const test = 1;
 const postScript = () => {
     // (function () {
     //     var script = document.createElement("script");
@@ -25,6 +26,8 @@ const postScript = () => {
     //     document.getElementsByTagName("head")[0].appendChild(script);
     // })();
 
+    mathJaxScript();
+
     waitForElement(".content-body", 8000)
         .then(function () {
             console.log("content-body element is loaded.. do stuff");
@@ -35,7 +38,8 @@ const postScript = () => {
                 hasInnerContainers: true,
             });
             tocbot.refresh();
-            mathJaxScript();
+            //mathJaxScript();
+            makeTOCFixed();
         })
         .catch(() => {
             console.log("content-body element did not load in 8 seconds");
@@ -102,6 +106,44 @@ function mathJaxScript() {
             },
         },
     };
+}
+
+function makeTOCFixed() {
+    if (test == 1 && $(".toc").length && $(".post-feature-image").length) {
+        var el = $(".toc");
+        el.css({
+            top: "580px",
+        });
+        var stickyTop = $(".toc").offset().top;
+        var stickyHeight = $(".toc").height();
+
+        $(window).scroll(function () {
+            // var limit =
+            //     $(".post-feature-image").offset()?.top - stickyHeight - 20;
+
+            var windowTop = $(window).scrollTop();
+            // console.log("stickyTop = " + stickyTop);
+            // console.log("windowTop = " + windowTop);
+
+            if (stickyTop < windowTop) {
+                el.css({
+                    position: "fixed",
+                    top: "70px",
+                });
+            } else {
+                el.css({
+                    position: "unset",
+                    float: "right",
+                });
+            }
+
+            // if (limit < windowTop) {
+            //     var diff = limit - windowTop;
+            //     el.css({});
+            // }
+        });
+        test++;
+    }
 }
 
 export default postScript;

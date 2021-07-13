@@ -109,40 +109,7 @@ const Post = ({ data, location }) => {
         } else {
             setApiResponse(true);
         }
-
-        if ($(".toc").length && $(".post-feature-image").length) {
-            var el = $(".toc");
-            el.css({
-                top: "580px",
-            });
-            var stickyTop = $(".toc").offset().top;
-            var stickyHeight = $(".toc").height();
-
-            $(window).scroll(function () {
-                var limit =
-                    $(".post-feature-image").offset()?.top - stickyHeight - 20;
-
-                var windowTop = $(window).scrollTop();
-
-                if (stickyTop < windowTop) {
-                    el.css({
-                        position: "fixed",
-                        top: "70px",
-                    });
-                } else {
-                    el.css({
-                        position: "unset",
-                        float: "right",
-                    });
-                }
-
-                if (limit < windowTop) {
-                    var diff = limit - windowTop;
-                    el.css({});
-                }
-            });
-        }
-    }, [[apiResponse]]);
+    }, []);
 
     function validateForm() {
         return planType.length > 0;
