@@ -28,7 +28,7 @@ import highchartJS from "../../highcharts.js";
 // Styles
 import "../../styles/app.css";
 import Search from "../search";
-const searchIndices = [{ name: `Ghost`, title: `Posts` }];
+const searchIndices = [{ name: `Book_two`, title: `Posts` }];
 
 /**
  * Main layout component
