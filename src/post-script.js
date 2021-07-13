@@ -61,15 +61,9 @@ function makeTOCFixed() {
             top: "580px",
         });
         var stickyTop = $(".toc").offset().top;
-        var stickyHeight = $(".toc").height();
 
         $(window).scroll(function () {
-            // var limit =
-            //     $(".post-feature-image").offset()?.top - stickyHeight - 20;
-
             var windowTop = $(window).scrollTop();
-            // console.log("stickyTop = " + stickyTop);
-            // console.log("windowTop = " + windowTop);
 
             if (stickyTop < windowTop) {
                 el.css({
@@ -82,13 +76,7 @@ function makeTOCFixed() {
                     float: "right",
                 });
             }
-
-            // if (limit < windowTop) {
-            //     var diff = limit - windowTop;
-            //     el.css({});
-            // }
         });
-        test++;
     }
 }
 
