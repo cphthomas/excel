@@ -1,7 +1,30 @@
 const postScript = () => {
-    mathJaxScript();
     waitForElement(".content-body", 8000)
         .then(function () {
+            (function () {
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";   // use the location of your MathJax
+
+                var config = 'MathJax.Hub.Config({' +
+                    'extensions: ["tex2jax.js"],' +
+                    'jax: ["input/TeX","output/HTML-CSS"]' +
+                    '});' +
+                    'MathJax.Hub.Startup.onload();';
+
+                if (window.opera) {
+                    script.innerHTML = config
+                } else {
+                    script.text = config
+                }
+
+                script.addEventListener('load', function() {
+                    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                })
+
+                document.getElementsByTagName("head")[0].appendChild(script);
+            })();
+
             console.log("content-body element is loaded.. do stuff");
             makeAnchorTargetBlank();
             tocbot.init({
@@ -11,6 +34,7 @@ const postScript = () => {
             });
             tocbot.refresh();
             makeTOCFixed();
+            mathJaxScript();
         })
         .catch(() => {
             console.log("content-body element did not load in 8 seconds");
