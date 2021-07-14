@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/login.css";
 import Cookies from "universal-cookie";
 import { loadStripe } from "@stripe/stripe-js";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -77,6 +78,10 @@ export default function Login() {
 
     return (
         <Layout>
+            <Helmet>
+                <title>Login</title>
+                <link rel="icon" href="/favicon.ico" sizes="16x16"></link>
+            </Helmet>
             <div className="form-div customFormDiv">
                 <form onSubmit={handleSubmit}>
                     <h3 className="page-title">Sign In</h3>
@@ -120,7 +125,8 @@ export default function Login() {
                         Not a member ? <a href="/signup">Sign up</a>
                     </p>
                     <p className="forgot-password text-right">
-                        Forgot password ? <a href="/forgotpassword">Click here</a>
+                        Forgot password ?{" "}
+                        <a href="/forgotpassword">Click here</a>
                     </p>
                 </form>
             </div>

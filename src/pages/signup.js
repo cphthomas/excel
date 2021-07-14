@@ -7,6 +7,7 @@ import "../styles/login.css";
 import Cookies from "universal-cookie";
 import ReactTooltip from "react-tooltip";
 import { loadStripe } from "@stripe/stripe-js";
+import { Helmet } from "react-helmet";
 
 export default function SignUp() {
     const [email, setEmail] = useState("");
@@ -90,6 +91,10 @@ export default function SignUp() {
 
     return (
         <Layout>
+            <Helmet>
+                <title>Signup</title>
+                <link rel="icon" href="/favicon.ico" sizes="16x16"></link>
+            </Helmet>
             <div className="form-div customFormDiv">
                 <form onSubmit={handleSubmit}>
                     <h3 className="page-title">Sign Up</h3>
