@@ -63,7 +63,7 @@ export default function Login() {
         <Layout>
             <Helmet>
                 <title>Forgot Password</title>
-                {/* <link rel="icon" href="/favicon.ico" sizes="16x16"></link> */}
+                <link rel="icon" href="/favicon.png" sizes="16x16"></link>
             </Helmet>
             <div className="form-div customFormDiv">
                 <form onSubmit={handleSubmit}>
