@@ -93,7 +93,7 @@ export default function SignUp() {
         <Layout>
             <Helmet>
                 <title>Signup</title>
-                <link rel="icon" href="/favicon.png" sizes="16x16"></link>
+                <link rel="icon" href="/tumblr-16.png" sizes="16x16"></link>
             </Helmet>
             <div className="form-div customFormDiv">
                 <form onSubmit={handleSubmit}>
