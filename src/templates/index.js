@@ -16,12 +16,12 @@ import { MetaData } from "../components/common/meta";
 const Index = ({ data, location, pageContext }) => {
     let posts = data.allGhostPost.edges;
 
-    posts = posts.sort(function (a, b) {
-        return a.node.title.localeCompare(b.node.title, undefined, {
-            numeric: true,
-            sensitivity: "base",
-        });
-    });
+    // posts = posts.sort(function (a, b) {
+    //     return a.node.title.localeCompare(b.node.title, undefined, {
+    //         numeric: true,
+    //         sensitivity: "base",
+    //     });
+    // });
 
     return (
         <>
@@ -75,6 +75,7 @@ export default Index;
 export const pageQuery = graphql`
     query GhostPostQuery {
         allGhostPost(
+            sort: { order: ASC, fields: published_at }
             filter: { tags: { elemMatch: { name: { eq: "Statistik" } } } }
         ) {
             edges {

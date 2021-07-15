@@ -21,8 +21,13 @@ import visJS from "../vis.js";
  * This file renders a single post and loads all the content.
  *
  */
-const Post = ({ data, location }) => {
+const Post = ({ data, location, pageContext }) => {
+    //console.log(pageContext.next.slug);
     //const { speak } = useSpeechSynthesis();
+    let nextPageUrl = pageContext.next ? pageContext.next.slug : "";
+    let prevPageUrl = pageContext.prev ? pageContext.prev.slug : "";
+    console.log(nextPageUrl);
+    console.log(prevPageUrl);
     let speech;
     if (typeof window !== "undefined") {
         speech = new Speech();
@@ -364,6 +369,33 @@ const Post = ({ data, location }) => {
                         </div>
                     </div>
                 )}
+                <nav aria-label="Page navigation example">
+                    <ul className="pagination">
+                        <li className="page-item">
+                            <a
+                                className={
+                                    "btn btn-primary btn-lg " +
+                                    (prevPageUrl ? "" : "disabled")
+                                }
+                                href={prevPageUrl ? "/" + prevPageUrl : ""}
+                            >
+                                Previous
+                            </a>
+                        </li>
+
+                        <li className="page-item">
+                            <a
+                                className={
+                                    "btn btn-primary btn-lg " +
+                                    (nextPageUrl ? "" : "disabled")
+                                }
+                                href={nextPageUrl ? "/" + nextPageUrl : ""}
+                            >
+                                Next
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </Layout>
         </div>
     );

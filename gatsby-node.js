@@ -25,7 +25,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const result = await graphql(`
         {
-            allGhostPost(sort: { order: ASC, fields: published_at }) {
+            allGhostPost(
+                sort: { order: ASC, fields: published_at }
+                filter: { tags: { elemMatch: { name: { eq: "Statistik" } } } }
+            ) {
                 edges {
                     node {
                         slug
@@ -145,7 +148,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     // Create post pages
-    posts.forEach(({ node }) => {
+    posts.forEach(({ node }, index) => {
         // This part here defines, that our posts will use
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`;
@@ -157,6 +160,8 @@ exports.createPages = async ({ graphql, actions }) => {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
                 slug: node.slug,
+                prev: index === 0 ? null : posts[index - 1].node,
+                next: index === posts.length - 1 ? null : posts[index + 1].node,
             },
         });
     });

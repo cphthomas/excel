@@ -64,12 +64,12 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
 
     let allPosts = data.allGhostPost.edges;
 
-    allPosts = allPosts.sort(function (a, b) {
-        return a.node.title.localeCompare(b.node.title, undefined, {
-            numeric: true,
-            sensitivity: "base",
-        });
-    });
+    // allPosts = allPosts.sort(function (a, b) {
+    //     return a.node.title.localeCompare(b.node.title, undefined, {
+    //         numeric: true,
+    //         sensitivity: "base",
+    //     });
+    // });
 
     function userLogout() {
         cookies.remove("loggedInUser");
@@ -528,6 +528,7 @@ const DefaultLayoutSettingsQuery = (props) => (
                     }
                 }
                 allGhostPost(
+                    sort: { order: ASC, fields: published_at }
                     filter: {
                         tags: { elemMatch: { name: { eq: "Statistik" } } }
                     }
