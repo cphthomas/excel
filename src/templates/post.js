@@ -15,6 +15,7 @@ import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import Speech from "speak-tts";
 import postScript from "../post-script.js";
 import visJS from "../vis.js";
+import { navigate } from "gatsby";
 /**
  * Single post view (/:slug)
  *
@@ -24,8 +25,14 @@ import visJS from "../vis.js";
 const Post = ({ data, location, pageContext }) => {
     //console.log(pageContext.next.slug);
     //const { speak } = useSpeechSynthesis();
-    let nextPageUrl = pageContext.next ? pageContext.next.slug : "";
-    let prevPageUrl = pageContext.prev ? pageContext.prev.slug : "";
+    const [nextPageUrl, setNextPageURL] = useState(
+        pageContext.next ? pageContext.next.slug : ""
+    );
+    const [prevPageUrl, setPrevPageUrl] = useState(
+        pageContext.prev ? pageContext.prev.slug : ""
+    );
+    //let nextPageUrl = pageContext.next ? pageContext.next.slug : "";
+    //let prevPageUrl = pageContext.prev ? pageContext.prev.slug : "";
     console.log(nextPageUrl);
     console.log(prevPageUrl);
     let speech;
@@ -74,6 +81,20 @@ const Post = ({ data, location, pageContext }) => {
     useEffect(async () => {
         visJS();
         postScript();
+
+        if (typeof window !== "undefined") {
+            window.addEventListener("keydown", (e) => {
+                console.log(e.key);
+                let keyPressed = e.key;
+                if (nextPageUrl != "" && keyPressed == "ArrowRight") {
+                    navigate("/" + nextPageUrl);
+                } else if (prevPageUrl != "" && keyPressed == "ArrowLeft") {
+                    navigate("/" + prevPageUrl);
+                } else if (keyPressed == "h") {
+                    navigate("/");
+                }
+            });
+        }
 
         // tocbot.init({
         //     tocSelector: ".toc",
