@@ -41,13 +41,13 @@
 .accountLi {
     margin: unset !important;
 }
-.btn-primary {
+.chapterBtn {
     border-radius: unset !important;
     background-color: #15171a !important;
     height: 24px !important;
     padding: 4px 4px !important;
 }
-.btn-primary:hover {
+.chapterBtn:hover {
     background-color: #15171a !important;
     text-decoration: none !important;
 }

@@ -1003,14 +1003,14 @@ h6 {
     justify-content: space-between;
     align-items: center;
     margin: 4vw 0 0;
-    bottom: 10px;
+    bottom: 5px;
     z-index: 99999;
     left: 30px;
 }
 
 .pagination a {
     display: inline-block;
-    padding: 4px 10px !important;
+    padding: 0px 10px !important;
     /* border: var(--color-border) 1px solid; */
     /* color: var(--color-secondary); */
     text-decoration: none;
@@ -1020,6 +1020,19 @@ h6 {
     background-color: black;
     color: white;
     border: none;
+}
+
+.page-item a {
+    font-size: 20px;
+    border-radius: 0px;
+}
+
+.page-item .disabled {
+    background-color: black !important;
+}
+
+.page-item a:hover {
+    background-color: black;
 }
 
 .pagination-location {

@@ -379,7 +379,7 @@ const Post = ({ data, location, pageContext }) => {
                                 }
                                 href={prevPageUrl ? "/" + prevPageUrl : ""}
                             >
-                                Previous
+                                &#8592;
                             </a>
                         </li>
 
@@ -391,7 +391,7 @@ const Post = ({ data, location, pageContext }) => {
                                 }
                                 href={nextPageUrl ? "/" + nextPageUrl : ""}
                             >
-                                Next
+                                &#8594;
                             </a>
                         </li>
                     </ul>
