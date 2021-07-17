@@ -23,7 +23,6 @@ import { navigate } from "gatsby";
  *
  */
 const Post = ({ data, location, pageContext }) => {
-    //console.log(pageContext.next.slug);
     //const { speak } = useSpeechSynthesis();
     const [nextPageUrl, setNextPageURL] = useState(
         pageContext.next ? pageContext.next.slug : ""
@@ -84,14 +83,29 @@ const Post = ({ data, location, pageContext }) => {
 
         if (typeof window !== "undefined") {
             window.addEventListener("keydown", (e) => {
-                console.log(e.key);
+                // console.log(e.key);
+                // console.log(
+                //     "------------------" +
+                //         window.location.pathname +
+                //         "------------------"
+                // );
+                const currentUrl =
+                    typeof window !== "undefined"
+                        ? window.location.pathname
+                        : "";
                 let keyPressed = e.key;
-                if (nextPageUrl != "" && keyPressed == "ArrowRight") {
-                    navigate("/" + nextPageUrl);
-                } else if (prevPageUrl != "" && keyPressed == "ArrowLeft") {
-                    navigate("/" + prevPageUrl);
-                } else if (keyPressed == "h") {
-                    navigate("/");
+                if (
+                    currentUrl != "/login" &&
+                    currentUrl != "/signup" &&
+                    currentUrl != "/forgotpassword"
+                ) {
+                    if (nextPageUrl != "" && keyPressed == "ArrowRight") {
+                        navigate("/" + nextPageUrl);
+                    } else if (prevPageUrl != "" && keyPressed == "ArrowLeft") {
+                        navigate("/" + prevPageUrl);
+                    } else if (keyPressed == "h") {
+                        navigate("/");
+                    }
                 }
             });
         }
