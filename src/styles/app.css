@@ -133,6 +133,10 @@ video {
 }
 body {
     line-height: 1;
+    font-family: var(--font-sans-serif) !important;
+}
+p {
+    font-family: var(--font-sans-serif) !important;
 }
 ol,
 ul {
