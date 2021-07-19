@@ -52,9 +52,9 @@
     text-decoration: none !important;
 }
 .nav-item li a:hover {
-    background-color: unset !important;
+    /* background-color: unset !important;
     text-decoration: underline !important;
-    color: #23527c !important;
+    color: #23527c !important; */
 }
 .nav-item .dropdown-menu {
     display: none;
@@ -71,6 +71,15 @@
 
 .allChapterUl {
     height: 500px;
+    background-color: black !important;
+}
+
+.allChapterUl a {
+    color: white;
+}
+
+.allChapterUl a:hover {
+    text-decoration: none !important;
 }
 
 .account {
