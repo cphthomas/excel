@@ -229,8 +229,8 @@ a:hover {
 }
 
 .helpModalBtn {
-    background: black;
-    border-radius: 0px;
+    background: black !important;
+    border-radius: 0px !important;
 }
 
 .helpDropdown ul {
