@@ -76,6 +76,7 @@
     "react-instantsearch-dom": "^6.11.0",
     "react-speech-kit": "^3.0.1",
     "react-tooltip": "^4.2.15",
+    "react-viewer": "^3.2.2",
     "serverless-mysql": "^1.5.4",
     "speak-tts": "^2.0.8",
     "stripe": "^8.137.0",

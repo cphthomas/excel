@@ -1006,8 +1006,8 @@ h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 4vw 0 0;
-    bottom: 5px;
+    margin: 0;
+    bottom: 0px;
     z-index: 99999;
     left: 30px;
 }
@@ -1027,7 +1027,7 @@ h6 {
 }
 
 .page-item a {
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 0px;
 }
 

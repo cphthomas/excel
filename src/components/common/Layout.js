@@ -24,6 +24,7 @@ import customNewJS from "../../newscript.js";
 import handsonJS from "../../handson.js";
 import amplitudeJS from "../../amplitude.js";
 import highchartJS from "../../highcharts.js";
+import Viewer from "react-viewer";
 
 // Styles
 import "../../styles/app.css";
@@ -50,6 +51,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const [userCardBrand, setUserCardBrand] = useState("");
     const [userCardDigit, setUserCardDigit] = useState("");
     const [userCardExp, setUserCardExp] = useState("");
+    const [visible, setVisible] = React.useState(false);
 
     const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PK_KEY);
 
@@ -317,12 +319,79 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 <div className="viewport-bottom">
                     <footer className="site-foot">
                         <div className="site-foot-nav container">
-                            <p>
+                            {/* <p>
                                 <a href="mailto: support@tepedu.com">Kontakt</a>{" "}
-                            </p>
+                            </p> */}
+                            <div class="dropdown helpDropdown">
+                                <button
+                                    class="btn btn-secondary dropdown-toggle helpBtn"
+                                    type="button"
+                                    id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Help
+                                </button>
+                                <ul
+                                    class="dropdown-menu"
+                                    aria-labelledby="dropdownMenuButton1"
+                                >
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            onClick={() => {
+                                                setVisible(true);
+                                            }}
+                                            href="#"
+                                        >
+                                            How To?
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="mailto: support@tepedu.com"
+                                        >
+                                            Kontakt
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </footer>
                 </div>
+                <Viewer
+                    visible={visible}
+                    onClose={() => {
+                        setVisible(false);
+                    }}
+                    zIndex={999999}
+                    disableKeyboardSupport={true}
+                    images={[
+                        {
+                            src:
+                                "https://res.cloudinary.com/hndu2f8jv/image/upload/v1626732598/GIF/faktura_hbfwao.gif",
+                            alt: "How to sign up?",
+                        },
+                        {
+                            src: "https://sample-videos.com/gif/3.gif",
+                            alt: "How to log in?",
+                        },
+                        {
+                            src: "https://sample-videos.com/gif/1.gif",
+                            alt: "How to change password?",
+                        },
+                        {
+                            src: "https://sample-videos.com/gif/2.gif",
+                            alt: "How to cancel subscription?",
+                        },
+                        {
+                            src:
+                                "https://media.giphy.com/media/VJHYCaFRSlE8G9wqyw/giphy.gif",
+                            alt: "How to change card?",
+                        },
+                    ]}
+                />
                 <div
                     className="modal fade"
                     id="confirmCancelModal"

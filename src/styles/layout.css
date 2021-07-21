@@ -212,13 +212,47 @@ a:hover {
 }
 
 .site-foot a {
-    display: block;
+    /* display: block;
     width: 70px;
     background-color: rgba(000, 000, 000, 1) !important;
     text-align: center;
     color: white !important;
     line-height: 25px;
-    text-decoration: none;
+    text-decoration: none; */
+}
+
+.helpBtn {
+    background-color: black !important;
+    border-radius: 0px !important;
+    border: none !important;
+    height: 25px;
+}
+
+.helpDropdown ul {
+    background-color: black;
+}
+
+.helpDropdown ul li {
+    padding-left: 0px;
+}
+
+.helpDropdown ul li a {
+    color: white;
+}
+
+.helpDropdown ul li a:hover {
+    color: black;
+}
+
+.react-viewer-img-details {
+    display: none;
+}
+
+.react-viewer-attribute {
+    font-size: 30px !important;
+    color: white !important;
+    font-weight: bold;
+    opacity: unset !important;
 }
 
 .switch-handle {
@@ -227,7 +261,7 @@ a:hover {
 
 .switch {
     position: fixed !important;
-    bottom: 15px !important;
+    bottom: 5px !important;
     right: 60px !important;
     z-index: 99999;
     border: unset !important;
