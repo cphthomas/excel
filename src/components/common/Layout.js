@@ -41,10 +41,10 @@ const searchIndices = [{ name: `Book_two`, title: `Posts` }];
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const helpImages = [
         "https://res.cloudinary.com/hndu2f8jv/image/upload/v1626732598/GIF/faktura_hbfwao.gif",
-        "https://sample-videos.com/gif/3.gif",
-        "https://sample-videos.com/gif/1.gif",
-        "https://sample-videos.com/gif/2.gif",
-        "https://media.giphy.com/media/VJHYCaFRSlE8G9wqyw/giphy.gif",
+        "https://mdbcdn.b-cdn.net/img/new/slides/041.jpg",
+        "https://mdbcdn.b-cdn.net/img/new/slides/042.jpg",
+        "https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg",
+        "https://mdbootstrap.com/img/Photos/Slides/img%20(19).jpg",
     ];
     const [userLoggedIn, setUserLoggedIn] = useState("-1");
     const [isSubscribed, setIsSubscribed] = useState(false);
@@ -432,7 +432,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                             <div class="text-center py-3">
                                 <button
                                     type="button"
-                                    class="btn btn-secondary"
+                                    class="btn btn-secondary helpModalBtn"
                                     data-bs-dismiss="modal"
                                 >
                                     Close
