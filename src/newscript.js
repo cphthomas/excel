@@ -31,7 +31,7 @@ function waitForElement(querySelector, timeout = 0) {
 function moveTocBotOnLoad(loadedHash) {
     $("html, body").animate(
         {
-            scrollTop: $("#" + loadedHash).offset().top,
+            scrollTop: $("#" + loadedHash).offset().top + 370,
         },
         "slow"
     );
