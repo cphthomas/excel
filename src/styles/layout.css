@@ -230,6 +230,7 @@ a:hover {
 
 .helpDropdown ul {
     background-color: black;
+    min-width: 15rem !important;
 }
 
 .helpDropdown ul li {

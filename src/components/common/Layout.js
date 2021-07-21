@@ -24,7 +24,6 @@ import customNewJS from "../../newscript.js";
 import handsonJS from "../../handson.js";
 import amplitudeJS from "../../amplitude.js";
 import highchartJS from "../../highcharts.js";
-import Viewer from "react-viewer";
 
 // Styles
 import "../../styles/app.css";
@@ -40,6 +39,13 @@ const searchIndices = [{ name: `Book_two`, title: `Posts` }];
  *
  */
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
+    const helpImages = [
+        "https://res.cloudinary.com/hndu2f8jv/image/upload/v1626732598/GIF/faktura_hbfwao.gif",
+        "https://sample-videos.com/gif/3.gif",
+        "https://sample-videos.com/gif/1.gif",
+        "https://sample-videos.com/gif/2.gif",
+        "https://media.giphy.com/media/VJHYCaFRSlE8G9wqyw/giphy.gif",
+    ];
     const [userLoggedIn, setUserLoggedIn] = useState("-1");
     const [isSubscribed, setIsSubscribed] = useState(false);
     const [userStripeId, setUserStripeId] = useState("");
@@ -51,7 +57,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const [userCardBrand, setUserCardBrand] = useState("");
     const [userCardDigit, setUserCardDigit] = useState("");
     const [userCardExp, setUserCardExp] = useState("");
-    const [visible, setVisible] = React.useState(false);
+    const [helpModalImageSrc, setHelpModalImageSrc] = useState("");
 
     const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PK_KEY);
 
@@ -79,6 +85,10 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         window.location.href = "/login";
     }
 
+    function helpModalImage(index) {
+        setHelpModalImageSrc(helpImages[index]);
+    }
+
     async function cancelSubscription() {
         //const userStripeId = "";
         await fetch("/.netlify/functions/cancel-subscription", {
@@ -96,6 +106,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         handsonJS();
         amplitudeJS();
         highchartJS();
+
+        setCanRender(true);
 
         const userEmail = cookies.get("loggedInUser");
         let customerStripeId = "";
@@ -339,12 +351,56 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     <li>
                                         <a
                                             class="dropdown-item"
-                                            onClick={() => {
-                                                setVisible(true);
-                                            }}
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal3"
                                             href="#"
+                                            onClick={() => helpModalImage(0)}
                                         >
-                                            How To?
+                                            How to signup?
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal3"
+                                            href="#"
+                                            onClick={() => helpModalImage(1)}
+                                        >
+                                            How to login?
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal3"
+                                            href="#"
+                                            onClick={() => helpModalImage(2)}
+                                        >
+                                            How to change password?
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal3"
+                                            href="#"
+                                            onClick={() => helpModalImage(3)}
+                                        >
+                                            How to cancel subscription?
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal3"
+                                            href="#"
+                                            onClick={() => helpModalImage(4)}
+                                        >
+                                            How to change card?
                                         </a>
                                     </li>
                                     <li>
@@ -360,38 +416,31 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         </div>
                     </footer>
                 </div>
-                <Viewer
-                    visible={visible}
-                    onClose={() => {
-                        setVisible(false);
-                    }}
-                    zIndex={999999}
-                    disableKeyboardSupport={true}
-                    images={[
-                        {
-                            src:
-                                "https://res.cloudinary.com/hndu2f8jv/image/upload/v1626732598/GIF/faktura_hbfwao.gif",
-                            alt: "How to sign up?",
-                        },
-                        {
-                            src: "https://sample-videos.com/gif/3.gif",
-                            alt: "How to log in?",
-                        },
-                        {
-                            src: "https://sample-videos.com/gif/1.gif",
-                            alt: "How to change password?",
-                        },
-                        {
-                            src: "https://sample-videos.com/gif/2.gif",
-                            alt: "How to cancel subscription?",
-                        },
-                        {
-                            src:
-                                "https://media.giphy.com/media/VJHYCaFRSlE8G9wqyw/giphy.gif",
-                            alt: "How to change card?",
-                        },
-                    ]}
-                />
+                <div
+                    class="modal fade"
+                    id="exampleModal3"
+                    tabindex="-1"
+                    aria-labelledby="exampleModal3Label"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="ratio ratio-16x9">
+                                <img src={helpModalImageSrc} />
+                            </div>
+
+                            <div class="text-center py-3">
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div
                     className="modal fade"
                     id="confirmCancelModal"
