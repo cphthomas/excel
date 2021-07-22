@@ -455,12 +455,12 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5
+                                <b
                                     className="modal-title"
                                     id="confirmCancelModalLabel"
                                 >
                                     Cancel Subscription
-                                </h5>
+                                </b>
                                 <button
                                     type="button"
                                     className="close"
@@ -503,12 +503,12 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5
+                                <b
                                     className="modal-title"
                                     id="changeCardModalLabel"
                                 >
                                     Add Card
-                                </h5>
+                                </b>
                                 <button
                                     type="button"
                                     className="close"
@@ -537,12 +537,12 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5
+                                <b
                                     className="modal-title"
                                     id="exampleModalLabel"
                                 >
                                     My Account
-                                </h5>
+                                </b>
                                 <button
                                     type="button"
                                     className="close"

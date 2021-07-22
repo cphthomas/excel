@@ -139,8 +139,9 @@ a:hover {
     margin-top: 10px;
     margin-bottom: 10px;
     float: right;
-    /* background: #545b62;
-    color: white; */
+    height: 25px;
+    background: black !important;
+    border-radius: 0px !important;
 }
 
 .marginWithBorder {
@@ -279,4 +280,8 @@ a:hover {
     font-size: 13px !important;
     font-family: sans-serif !important;
     background-color: black !important;
+}
+
+.modal-title {
+    font-size: 18px !important;
 }
