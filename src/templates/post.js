@@ -310,8 +310,8 @@ const Post = ({ data, location, pageContext }) => {
                   !userLoggedIn &&
                   (fisrtTagPlan == constants.PRO_POST ||
                       fisrtTagPlan == constants.PREMIUM_POST) ? (
-                    <div class="card">
-                        <div class="card-body">
+                    <div className="card">
+                        <div className="card-body">
                             <h2 className="whiteClr">
                                 This post is for paying subscribers only
                             </h2>
@@ -326,8 +326,8 @@ const Post = ({ data, location, pageContext }) => {
                   userPlanId == constants.USER_NO_PLAN_ID &&
                   (fisrtTagPlan == constants.PRO_POST ||
                       fisrtTagPlan == constants.PREMIUM_POST) ? (
-                    <div class="card">
-                        <div class="card-body">
+                    <div className="card">
+                        <div className="card-body">
                             <h2 className="whiteClr">
                                 This post is for paying subscribers only
                             </h2>
@@ -382,8 +382,8 @@ const Post = ({ data, location, pageContext }) => {
                   userLoggedIn &&
                   userPlanId == constants.USER_PRO_PLAN_ID &&
                   fisrtTagPlan == constants.PREMIUM_POST ? (
-                    <div class="card">
-                        <div class="card-body">
+                    <div className="card">
+                        <div className="card-body">
                             <h2 className="whiteClr">
                                 This post is for premium subscribers only
                             </h2>

@@ -32,7 +32,7 @@ const Navigation = ({ data, navClass }) => (
                     return (
                         <Link className={navClass} to={navItem.url} key={i}>
                             {/* {navItem.label} */}
-                            <img src="/home.svg" class="logoImg" width="30" height="37"/>
+                            <img src="/home.svg" className="logoImg" width="30" height="37"/>
                         </Link>
                     );
                 }
