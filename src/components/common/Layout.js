@@ -40,10 +40,11 @@ const searchIndices = [{ name: `Book_two`, title: `Posts` }];
  */
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const helpImages = [
-        "https://res.cloudinary.com/hndu2f8jv/image/upload/v1626732598/GIF/faktura_hbfwao.gif",
-        "https://mdbcdn.b-cdn.net/img/new/slides/041.jpg",
-        "https://mdbcdn.b-cdn.net/img/new/slides/042.jpg",
-        "https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
         "https://mdbootstrap.com/img/Photos/Slides/img%20(19).jpg",
     ];
     const [userLoggedIn, setUserLoggedIn] = useState("-1");
@@ -422,11 +423,14 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     tabindex="-1"
                     aria-labelledby="exampleModal3Label"
                     aria-hidden="true"
+                    data-bs-backdrop="static"
+                    data-bs-keyboard="false"
                 >
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="ratio ratio-16x9">
-                                <img src={helpModalImageSrc} />
+                                <video autoPlay loop src={helpModalImageSrc} />
+                                {/* <img src={helpModalImageSrc} /> */}
                             </div>
 
                             <div class="text-center py-3">
@@ -434,6 +438,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     type="button"
                                     class="btn btn-secondary helpModalBtn"
                                     data-bs-dismiss="modal"
+                                    onClick={() => helpModalImage(5)}
                                 >
                                     Close
                                 </button>
