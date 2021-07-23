@@ -95,7 +95,7 @@ export default function Login() {
                     <button
                         type="submit"
                         disabled={!validateForm()}
-                        className="btn btn-primary fpwd-btn"
+                        className="btn btn-primary btn-color"
                     >
                         Change Password
                     </button>

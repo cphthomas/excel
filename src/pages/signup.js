@@ -181,11 +181,12 @@ export default function SignUp() {
                         </p>
                     ) : null}
                     <p className="forgot-password text-right">
-                        Already a member ? <a href="/login">Sign In</a>
+                        <a href="/login" class="btn btn-primary guideBtn">Already a member ? Sign In</a>
                     </p>
                     <p className="forgot-password text-right">
-                        Forgot password ?{" "}
-                        <a href="/forgotpassword">Click here</a>
+                        <a href="/forgotpassword" class="btn btn-primary guideBtn">
+                            Forgot password ? Click here
+                        </a>
                     </p>
                     <ReactTooltip />
                 </form>

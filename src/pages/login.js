@@ -122,11 +122,14 @@ export default function Login() {
                         </p>
                     ) : null}
                     <p className="forgot-password text-right">
-                        Not a member ? <a href="/signup">Sign up</a>
+                        <a class="btn btn-primary guideBtn" href="/signup">
+                            Not a member ? Sign up
+                        </a>
                     </p>
                     <p className="forgot-password text-right">
-                        Forgot password ?{" "}
-                        <a href="/forgotpassword">Click here</a>
+                        <a class="btn btn-primary guideBtn" href="/forgotpassword">
+                            Forgot password ? Click here
+                        </a>
                     </p>
                 </form>
             </div>
