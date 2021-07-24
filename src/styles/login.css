@@ -15,7 +15,12 @@ form {
 .btn-color {
     background: #15171a;
     line-height: 0.428571 !important;
-    border-radius: 0px;
+    border-radius: 0px !important;
+    border: none;
+}
+
+.btn-color:hover {
+    background: #15171a !important;
 }
 
 .fpwd-btn {
@@ -58,8 +63,13 @@ input {
     background-color: black;
     border-radius: 0px;
     text-decoration: none !important;
+    border: none;
 }
 
 .guideBtn:hover {
     background-color: black !important;
+}
+
+.form-control {
+    border-radius: 0px;
 }
