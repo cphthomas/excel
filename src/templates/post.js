@@ -251,6 +251,20 @@ const Post = ({ data, location, pageContext }) => {
         }
     }
 
+    async function serachInPage(e) {
+        let code = e.keyCode ? e.keyCode : e.which;
+        //console.log(code);
+        if (code == 13) {
+            if (
+                typeof window !== "undefined" &&
+                !window.find(e.target.value) &&
+                e.target.value != ""
+            ) {
+                alert("No result!");
+            }
+        }
+    }
+
     return (
         <div>
             <MetaData data={data} location={location} type="article" />
@@ -258,6 +272,19 @@ const Post = ({ data, location, pageContext }) => {
                 <style type="text/css">{`${post?.codeinjection_styles}`}</style>
             </Helmet>
             <Layout>
+                <div class="search-container">
+                    <input
+                        class="search"
+                        id="searchleft"
+                        type="search test"
+                        name="q"
+                        onKeyUp={(e) => serachInPage(e)}
+                        placeholder="Search In Chapter"
+                    />
+                    <label class="button searchbutton" for="searchleft">
+                        <span class="mglass">&#9906;</span>
+                    </label>
+                </div>
                 {apiResponse &&
                 (fisrtTagPlan == constants.FREE_POST ||
                     userPlanId == constants.USER_PREMIUM_PLAN_ID ||
