@@ -5,7 +5,9 @@ const customNewJS = () => {
     waitForElement("#" + loadedHash, 8000)
         .then(function () {
             console.log("loadedHash is loaded.. do stuff = " + loadedHash);
-            moveTocBotOnLoad(loadedHash);
+            setTimeout(function () {
+                moveTocBotOnLoad(loadedHash);
+            }, 1000);
         })
         .catch(() => {
             console.log("loadedHash did not load in 8 seconds");
