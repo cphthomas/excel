@@ -1012,6 +1012,13 @@ h6 {
     left: 30px;
 }
 
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: portrait) {
+    .pagination {
+        left: 0px !important;
+    }
+}
+
 .pagination a {
     display: inline-block;
     padding: 0px 10px !important;

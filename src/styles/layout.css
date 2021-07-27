@@ -285,3 +285,10 @@ a:hover {
 .modal-title {
     font-size: 18px !important;
 }
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: portrait) {
+    .switch {
+        right: 5px !important;
+    }
+}
