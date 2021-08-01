@@ -1,4 +1,10 @@
 const customNewJS = () => {
+    var myModalEl = document.getElementById("exampleModal3");
+    var videoSrcElm = document.getElementById("helpVideo");
+    myModalEl.addEventListener("hidden.bs.modal", function (event) {
+        videoSrcElm.src = "";
+    });
+
     var url = window.location.href;
     var loadedHash = url.split("#")[1];
 

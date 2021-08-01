@@ -292,3 +292,11 @@ a:hover {
         right: 5px !important;
     }
 }
+
+.helpModal {
+    max-width: 80% !important;
+}
+
+#exampleModal3 {
+    padding-right: 0px !important;
+}

@@ -421,13 +421,13 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     tabindex="-1"
                     aria-labelledby="exampleModal3Label"
                     aria-hidden="true"
-                    data-bs-backdrop="static"
-                    data-bs-keyboard="false"
+                    //data-bs-backdrop="static"
+                    //data-bs-keyboard="false"
                 >
-                    <div className="modal-dialog modal-lg">
+                    <div className="modal-dialog modal-lg helpModal">
                         <div className="modal-content">
                             <div className="ratio ratio-16x9">
-                                <video autoPlay loop src={helpModalImageSrc} />
+                                <video autoPlay loop src={helpModalImageSrc} id="helpVideo" />
                                 {/* <img src={helpModalImageSrc} /> */}
                             </div>
 
