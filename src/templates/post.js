@@ -340,11 +340,11 @@ const Post = ({ data, location, pageContext }) => {
                     <div className="card">
                         <div className="card-body">
                             <h2 className="whiteClr">
-                                This post is for paying subscribers only
+                            Dette kapitel er kun for betalende abonnenter 
                             </h2>
                             <p className="font-18">
-                                Already have an account?{" "}
-                                <a href="/login">Sign in</a>
+                                Har du allerede abonnement?{" "}
+                                <a href="/login">Login</a>
                             </p>
                         </div>
                     </div>
