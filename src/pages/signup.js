@@ -97,25 +97,25 @@ export default function SignUp() {
             </Helmet>
             <div className="form-div customFormDiv">
                 <form onSubmit={handleSubmit}>
-                    <h3 className="page-title">Sign Up</h3>
+                    <h1 className="page-title">Køb adgang</h1>
 
                     <div className="form-group">
-                        <label>Full name</label>
+                        <label>Navn</label>
                         <input
                             type="name"
                             className="form-control"
-                            placeholder="Enter full name"
+                            placeholder="Skriv navn"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
                     </div>
 
                     <div className="form-group">
-                        <label>Email address</label>
+                        <label>Email</label>
                         <input
                             type="email"
                             className="form-control"
-                            placeholder="Enter email"
+                            placeholder="Skriv email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -126,7 +126,7 @@ export default function SignUp() {
                         <input
                             type="password"
                             className="form-control"
-                            placeholder="Enter password"
+                            placeholder="Skriv password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             maxLength="12"
@@ -134,7 +134,7 @@ export default function SignUp() {
                     </div>
 
                     <div className="form-group">
-                        <label>Choose your subscription</label>
+                        <label>Vælg abonnement</label>
                         <div>
                             <label
                                 data-tip="Access to pro content with, 49.00kr DKK / Month"
@@ -173,7 +173,7 @@ export default function SignUp() {
                         className="btn btn-primary btn-color"
                         disabled={!validateForm()}
                     >
-                        Sign Up
+                        Køb adgang
                     </button>
                     {showMessage ? (
                         <p className="message" style={{ color: messageColor }}>
@@ -181,11 +181,11 @@ export default function SignUp() {
                         </p>
                     ) : null}
                     <p className="forgot-password text-right">
-                        <a href="/login" class="btn btn-primary guideBtn">Already a member ? Sign In</a>
+                        <a href="/login" class="btn btn-primary guideBtn">Allerede medlem? Login</a>
                     </p>
                     <p className="forgot-password text-right">
                         <a href="/forgotpassword" class="btn btn-primary guideBtn">
-                            Forgot password ? Click here
+                            Glemt password?
                         </a>
                     </p>
                     <ReactTooltip />

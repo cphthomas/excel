@@ -67,25 +67,25 @@ export default function Login() {
             </Helmet>
             <div className="form-div customFormDiv">
                 <form onSubmit={handleSubmit}>
-                    <h3 className="page-title">Forgot Password</h3>
+                    <h1 className="page-title">Glemt Password</h1>
 
                     <div className="form-group">
-                        <label>Email address</label>
+                        <label>Email</label>
                         <input
                             type="email"
                             className="form-control"
-                            placeholder="Enter email"
+                            placeholder="Skriv email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
 
                     <div className="form-group">
-                        <label>New Password</label>
+                        <label>Nyt Password</label>
                         <input
                             type="password"
                             className="form-control"
-                            placeholder="Enter new password"
+                            placeholder="Skriv nyt password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             maxLength="12"
@@ -97,7 +97,7 @@ export default function Login() {
                         disabled={!validateForm()}
                         className="btn btn-primary btn-color"
                     >
-                        Change Password
+                        Skift Password
                     </button>
                     {showMessage ? (
                         <p className="message" style={{ color: messageColor }}>

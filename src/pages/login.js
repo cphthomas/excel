@@ -52,7 +52,7 @@ export default function Login() {
                 } else {
                     planId = responseJson.planId;
                     setMessageColor("green");
-                    setMessage("Logged in successfully");
+                    setMessage("Du er nu logget ind");
                     await cookies.set("loggedInUser", email, {
                         path: "/",
                         maxAge: 31536000,
@@ -84,14 +84,14 @@ export default function Login() {
             </Helmet>
             <div className="form-div customFormDiv">
                 <form onSubmit={handleSubmit}>
-                    <h3 className="page-title">Sign In</h3>
+                    <h1 className="page-title">Adgang</h1>
 
                     <div className="form-group">
-                        <label>Email address</label>
+                        <label>Email</label>
                         <input
                             type="email"
                             className="form-control"
-                            placeholder="Enter email"
+                            placeholder="Skriv email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -102,7 +102,7 @@ export default function Login() {
                         <input
                             type="password"
                             className="form-control"
-                            placeholder="Enter password"
+                            placeholder="Skriv password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             maxLength="12"
@@ -114,7 +114,7 @@ export default function Login() {
                         disabled={!validateForm()}
                         className="btn btn-primary btn-color"
                     >
-                        Log In
+                        Log ind
                     </button>
                     {showMessage ? (
                         <p className="message" style={{ color: messageColor }}>
@@ -123,12 +123,12 @@ export default function Login() {
                     ) : null}
                     <p className="forgot-password text-right">
                         <a class="btn btn-primary guideBtn" href="/signup">
-                            Not a member ? Sign up
+                            Ny? Køb adgang
                         </a>
                     </p>
                     <p className="forgot-password text-right">
                         <a class="btn btn-primary guideBtn" href="/forgotpassword">
-                            Forgot password ? Click here
+                            Glemt password?
                         </a>
                     </p>
                 </form>
