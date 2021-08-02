@@ -279,7 +279,7 @@ const Post = ({ data, location, pageContext }) => {
                         type="search test"
                         name="q"
                         onKeyUp={(e) => serachInPage(e)}
-                        placeholder="Search In Chapter"
+                        placeholder="Søg i kapitlet"
                     />
                     <label class="button searchbutton" for="searchleft">
                         <span class="mglass">&#9906;</span>
