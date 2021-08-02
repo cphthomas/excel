@@ -25,7 +25,7 @@ const CARD_ELEMENT_OPTIONS = {
 function CardSection() {
     return (
         <label>
-            <p>Card details</p>
+            <p>Kort detaljer</p>
             <CardElement
                 options={CARD_ELEMENT_OPTIONS}
                 className="StripeElement"
