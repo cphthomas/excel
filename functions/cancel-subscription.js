@@ -13,7 +13,7 @@ exports.handler = async function (event) {
             statusCode: 200,
             body: JSON.stringify({
                 error: "1",
-                message: "You have already cancelled your subscription.",
+                message: "Du har allerede afmeldt dit abonnement.",
             }),
         };
     }
@@ -27,7 +27,7 @@ exports.handler = async function (event) {
         body: JSON.stringify({
             error: "0",
             message:
-                "Your subscription has been successfully canceled, it will automatically expire at the end of the subscription period. ",
+                "Dit abonnement er nu afmeldt, det stopper automatisk ved udløb af abonnementsperioden. Du modtager ikke flere regninger.",
         }),
     };
 };
