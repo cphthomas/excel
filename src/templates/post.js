@@ -365,7 +365,7 @@ const Post = ({ data, location, pageContext }) => {
                                 <form onSubmit={handleSubmit}>
                                     <div>
                                         <label
-                                            data-tip="Adgang til pro indhold, 49.00kr DKK / Pr. måned"
+                                            data-tip="Adgang til Pro indhold, 49.00kr DKK / Pr. måned"
                                             className="margin-right-20"
                                         >
                                             <input
@@ -380,7 +380,7 @@ const Post = ({ data, location, pageContext }) => {
                                             />{" "}
                                             Pro
                                         </label>
-                                        <label data-tip="Fuld adgang for, 69.00kr DKK / Pr. måned">
+                                        <label data-tip="Fuld adgang Premium for, 69.00kr DKK / Pr. måned">
                                             <input
                                                 type="radio"
                                                 name="size"
