@@ -137,7 +137,7 @@ export default function SignUp() {
                         <label>Vælg abonnement</label>
                         <div>
                             <label
-                                data-tip="Access to pro content with, 49.00kr DKK / Month"
+                                data-tip="Adgang til Pro indhold, 49.00kr DKK / Pr. måned"
                                 className="margin-right-20"
                             >
                                 <input
@@ -152,7 +152,7 @@ export default function SignUp() {
                                 />{" "}
                                 Pro
                             </label>
-                            <label data-tip="Full Access with, 69.00kr DKK / Month">
+                            <label data-tip="Fuld adgang Premium, 69.00kr DKK / Pr. måned">
                                 <input
                                     type="radio"
                                     name="size"
@@ -173,7 +173,7 @@ export default function SignUp() {
                         className="btn btn-primary btn-color"
                         disabled={!validateForm()}
                     >
-                        Køb adgang
+                        Køb adgang nu
                     </button>
                     {showMessage ? (
                         <p className="message" style={{ color: messageColor }}>
