@@ -71,7 +71,7 @@ export default function CardSetupForm(props) {
             <form onSubmit={handleSubmit}>
                 <CardSection />
                 <button disabled={btnDisable} className="cardBtn">
-                    Save Card
+                    Gem kreditkort
                 </button>
             </form>
             <p className="error">{errorMessage}</p>

@@ -279,7 +279,7 @@ const Post = ({ data, location, pageContext }) => {
                         type="search test"
                         name="q"
                         onKeyUp={(e) => serachInPage(e)}
-                        placeholder="Search In Chapter"
+                        placeholder="Søg i kapitlet"
                     />
                     <label class="button searchbutton" for="searchleft">
                         <span class="mglass">&#9906;</span>
@@ -313,8 +313,8 @@ const Post = ({ data, location, pageContext }) => {
                                 onstyle="dark"
                                 offstyle="dark"
                                 style="border"
-                                onlabel="Speech"
-                                offlabel="No Speech"
+                                onlabel="Tale"
+                                offlabel="Ingen tale"
                                 onChange={enableDisableSpeech}
                                 style={{ border: "none" }}
                             />
@@ -340,11 +340,11 @@ const Post = ({ data, location, pageContext }) => {
                     <div className="card">
                         <div className="card-body">
                             <h2 className="whiteClr">
-                                This post is for paying subscribers only
+                            Dette kapitel er kun for betalende abonnenter 
                             </h2>
                             <p className="font-18">
-                                Already have an account?{" "}
-                                <a href="/login">Sign in</a>
+                                Har du allerede abonnement?{" "}
+                                <a href="/login">Login</a>
                             </p>
                         </div>
                     </div>
@@ -356,16 +356,16 @@ const Post = ({ data, location, pageContext }) => {
                     <div className="card">
                         <div className="card-body">
                             <h2 className="whiteClr">
-                                This post is for paying subscribers only
+                                Dette kapitel er kun for betalende abonnenter 
                             </h2>
                             <div className="form-group">
                                 <label className="font-size-15">
-                                    Choose your subscription
+                                    Vælg abonnement
                                 </label>
                                 <form onSubmit={handleSubmit}>
                                     <div>
                                         <label
-                                            data-tip="Access to pro content with, 49.00kr DKK / Month"
+                                            data-tip="Adgang til Pro indhold, 49.00kr DKK / Pr. måned"
                                             className="margin-right-20"
                                         >
                                             <input
@@ -380,7 +380,7 @@ const Post = ({ data, location, pageContext }) => {
                                             />{" "}
                                             Pro
                                         </label>
-                                        <label data-tip="Full Access with, 69.00kr DKK / Month">
+                                        <label data-tip="Fuld adgang Premium for, 69.00kr DKK / Pr. måned">
                                             <input
                                                 type="radio"
                                                 name="size"
@@ -399,7 +399,7 @@ const Post = ({ data, location, pageContext }) => {
                                         className="btn btn-primary btn-premiume"
                                         disabled={!validateForm()}
                                     >
-                                        Upgrade Subscription
+                                        Upgrader abonnement
                                     </button>
                                 </form>
                             </div>
@@ -412,14 +412,14 @@ const Post = ({ data, location, pageContext }) => {
                     <div className="card">
                         <div className="card-body">
                             <h2 className="whiteClr">
-                                This post is for premium subscribers only
+                            Dette kapitel er kun for premium abonnenter
                             </h2>
                             <button
                                 type="submit"
                                 className="btn btn-primary btn-premiume"
                                 onClick={premiumCheckout}
                             >
-                                Upgrade to premium
+                                Upgrader til premium
                             </button>
                         </div>
                     </div>
@@ -427,7 +427,7 @@ const Post = ({ data, location, pageContext }) => {
                     <div className="loadwrap">
                         <div>
                             <div className="bounceball"></div>
-                            <div className="loadText">NOW LOADING</div>
+                            <div className="loadText">Indlæser nu!</div>
                         </div>
                     </div>
                 )}

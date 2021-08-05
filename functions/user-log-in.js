@@ -19,7 +19,7 @@ exports.handler = async function (event) {
             statusCode: 200,
             body: JSON.stringify({
                 error: "1",
-                message: "Wrong Credentials",
+                message: "Forkert email eller password",
             }),
         };
     }
@@ -37,7 +37,7 @@ exports.handler = async function (event) {
             planId: existUserResult[0].plan_id,
             emailId: existUserResult[0].user_email,
             userIp: userIp,
-            message: "User logged in",
+            message: "Bruger logget ind",
         }),
     };
 };

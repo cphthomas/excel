@@ -285,21 +285,21 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#exampleModal"
                                                         >
-                                                            My Account
+                                                            Min konto
                                                         </a>
                                                         <a
                                                             className="dropdown-item"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#confirmCancelModal"
                                                         >
-                                                            Cancel Subscription
+                                                            Afmeld abonnement
                                                         </a>
                                                         <a
                                                             className="dropdown-item"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#changeCardModal"
                                                         >
-                                                            Change Card
+                                                            Skift Kreditkort
                                                         </a>
                                                     </div>
                                                 ) : (
@@ -310,7 +310,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                                     className="dropdown-item"
                                                     onClick={userLogout}
                                                 >
-                                                    Logout
+                                                    Log ud
                                                 </a>
                                             </div>
                                         </li>
@@ -341,7 +341,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
                                 >
-                                    Help
+                                    Hjælp?
                                 </button>
                                 <ul
                                     className="dropdown-menu"
@@ -355,7 +355,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                             href="#"
                                             onClick={() => helpModalImage(0)}
                                         >
-                                            How to signup?
+                                            Hjælp til adgang?
                                         </a>
                                     </li>
                                     <li>
@@ -366,7 +366,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                             href="#"
                                             onClick={() => helpModalImage(1)}
                                         >
-                                            How to login?
+                                            Hjælp til login?
                                         </a>
                                     </li>
                                     <li>
@@ -377,7 +377,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                             href="#"
                                             onClick={() => helpModalImage(2)}
                                         >
-                                            How to change password?
+                                            Hjælp til password?
                                         </a>
                                     </li>
                                     <li>
@@ -388,7 +388,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                             href="#"
                                             onClick={() => helpModalImage(3)}
                                         >
-                                            How to cancel subscription?
+                                            Hjælp til afmelding?
                                         </a>
                                     </li>
                                     <li>
@@ -399,7 +399,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                             href="#"
                                             onClick={() => helpModalImage(4)}
                                         >
-                                            How to change card?
+                                            Hjælp til kort skift?
                                         </a>
                                     </li>
                                     <li>
@@ -423,7 +423,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     <li>
                                         <a
                                             className="dropdown-item"
-                                            href="mailto: support@tepedu.com"
+                                            href="mailto: statistik@tepedu.com"
                                         >
                                             Kontakt
                                         </a>
@@ -482,7 +482,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     className="modal-title"
                                     id="confirmCancelModalLabel"
                                 >
-                                    Cancel Subscription
+                                    Afmeld abonnement
                                 </b>
                                 <button
                                     type="button"
@@ -495,8 +495,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                             </div>
                             <div className="modal-body">
                                 <p className="font14">
-                                    Are you sure, do you want to cancel your
-                                    subscription?
+                                    Er du sikker på du vil afmelde dit
+                                    abonnement?
                                 </p>
                                 <div className="row">
                                     <div className="col-md-12">
@@ -504,7 +504,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                             className="btn btn-primary cnfrmBtn"
                                             onClick={cancelSubscription}
                                         >
-                                            Confirm
+                                            Bekræft
                                         </button>
                                     </div>
                                     {/* <div className="col-md-6">
@@ -530,7 +530,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     className="modal-title"
                                     id="changeCardModalLabel"
                                 >
-                                    Add Card
+                                    Skift kreditkort
                                 </b>
                                 <button
                                     type="button"
@@ -564,7 +564,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     className="modal-title"
                                     id="exampleModalLabel"
                                 >
-                                    My Account
+                                    Min konto
                                 </b>
                                 <button
                                     type="button"
@@ -577,10 +577,10 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                             </div>
                             <div className="modal-body">
                                 <div className="marginWithBorder">
-                                    <p className="detail-head">User Detail:</p>
+                                    <p className="detail-head">Bruger:</p>
                                     <div className="row font14">
                                         <div className="col-md-6">
-                                            Name: {userName}
+                                            Navn: {userName}
                                         </div>
                                         <div className="col-md-6">
                                             Email: {userEmail}
@@ -588,47 +588,45 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     </div>
                                 </div>
                                 <div className="marginWithBorder">
-                                    <p className="detail-head">
-                                        Subscription Detail:
-                                    </p>
+                                    <p className="detail-head">Abonnement:</p>
                                     <div className="row font14">
                                         <div className="col-md-6">
-                                            Current plan: {userPlan}
+                                            Nuværende plan: {userPlan}
                                         </div>
                                         <div className="col-md-6">
-                                            End date: {userPlanEndDate}
+                                            Fornyelse: {userPlanEndDate}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="marginWithBorder">
-                                    <p className="detail-head">Card Detail:</p>
+                                    <p className="detail-head">Kreditkort:</p>
                                     <div className="row font14">
                                         <div className="col-md-4">
                                             Brand: {userCardBrand}
                                         </div>
                                         <div className="col-md-4">
-                                            Last 4 digits: {userCardDigit}
+                                            Sidste 4 cifre: {userCardDigit}
                                         </div>
                                         <div className="col-md-4">
-                                            Exp date: {userCardExp}
+                                            Udløb: {userCardExp}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="marginWithBorder">
                                     <p className="detail-head">
-                                        Latest Invoice:
+                                        Sidste faktura:
                                     </p>
                                     <div className="row font14">
                                         <div className="col-md-12">
                                             <p>
-                                                Click{" "}
+                                                Klik{" "}
                                                 <a
                                                     target="_blank"
                                                     href={userInvoiceUrl}
                                                 >
-                                                    here
+                                                    her
                                                 </a>{" "}
-                                                to view latest invoice
+                                                for at se sidste faktura
                                             </p>
                                         </div>
                                     </div>
