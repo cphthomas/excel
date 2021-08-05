@@ -405,6 +405,24 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     <li>
                                         <a
                                             className="dropdown-item"
+                                            href="/term-service"
+                                            target="_blank"
+                                        >
+                                            Abonnementsbetingelser
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="/privacy-policy"
+                                            target="_blank"
+                                        >
+                                            Privatlivspolitik
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
                                             href="mailto: support@tepedu.com"
                                         >
                                             Kontakt
@@ -427,7 +445,12 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     <div className="modal-dialog modal-lg helpModal">
                         <div className="modal-content">
                             <div className="ratio ratio-16x9">
-                                <video autoPlay loop src={helpModalImageSrc} id="helpVideo" />
+                                <video
+                                    autoPlay
+                                    loop
+                                    src={helpModalImageSrc}
+                                    id="helpVideo"
+                                />
                                 {/* <img src={helpModalImageSrc} /> */}
                             </div>
 

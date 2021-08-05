@@ -1,6 +1,6 @@
 .form-div {
-    padding-left: 35%;
-    padding-right: 35%;
+    padding-left: 31%;
+    padding-right: 31%;
 }
 
 form {
@@ -72,4 +72,14 @@ input {
 
 .form-control {
     border-radius: 0px;
+}
+
+.tnc {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tnc a {
+    text-decoration: none;
 }

@@ -180,11 +180,27 @@ export default function SignUp() {
                             {message}
                         </p>
                     ) : null}
-                    <p className="forgot-password text-right">
-                        <a href="/login" class="btn btn-primary guideBtn">Already a member ? Sign In</a>
+                    <p className="tnc">
+                        Ved tilmeldingen bekræfter du at have læst{" "}
+                        <a href="/term-service" target="_blank">
+                            abonnementsbetingelser
+                        </a>{" "}
+                        &{" "}
+                        <a href="/privacy-policy" target="_blank">
+                            privatlivspolitik
+                        </a>
+                        .
                     </p>
                     <p className="forgot-password text-right">
-                        <a href="/forgotpassword" class="btn btn-primary guideBtn">
+                        <a href="/login" class="btn btn-primary guideBtn">
+                            Already a member ? Sign In
+                        </a>
+                    </p>
+                    <p className="forgot-password text-right">
+                        <a
+                            href="/forgotpassword"
+                            class="btn btn-primary guideBtn"
+                        >
                             Forgot password ? Click here
                         </a>
                     </p>
