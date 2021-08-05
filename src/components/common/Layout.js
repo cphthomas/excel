@@ -40,11 +40,11 @@ const searchIndices = [{ name: `Book_two`, title: `Posts` }];
  */
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const helpImages = [
-        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1628170049/helpvideos/koeb.mp4",
+        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1628170033/helpvideos/login.mp4",
+        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1628170039/helpvideos/passwordglemt.mp4",
+        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1628170050/helpvideos/afmeld.mp4",
+        "https://res.cloudinary.com/hndu2f8jv/video/upload/v1628170049/helpvideos/skift.mp4",
         "https://mdbootstrap.com/img/Photos/Slides/img%20(19).jpg",
     ];
     const [userLoggedIn, setUserLoggedIn] = useState("-1");
