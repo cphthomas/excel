@@ -447,7 +447,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                             <div className="ratio ratio-16x9">
                                 <video
                                     autoPlay
-                                    loop
                                     src={helpModalImageSrc}
                                     id="helpVideo"
                                 />
