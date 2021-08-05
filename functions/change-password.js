@@ -17,7 +17,7 @@ exports.handler = async function (event) {
             statusCode: 200,
             body: JSON.stringify({
                 error: "1",
-                message: "User not exist with entered email id.",
+                message: "Der findes ingen bruger med denne email",
             }),
         };
     }
@@ -31,7 +31,7 @@ exports.handler = async function (event) {
         body: JSON.stringify({
             error: "0",
             message:
-                "Password successfully changed redirecting to login page...",
+                "Password er nu ændret du sendes til login siden...",
         }),
     };
 };
