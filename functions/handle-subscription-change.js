@@ -26,7 +26,10 @@ exports.handler = async function ({ body, headers }, context) {
             process.env.GATSBY_PRO_PLAN_ID
         ) {
             plan = "1";
-        } else {
+        } else if (
+            subscription.items.data[0].plan.product ==
+            process.env.GATSBY_PREMIUM_PLAN_ID
+        ) {
             plan = "2";
         }
 
@@ -47,6 +50,10 @@ exports.handler = async function ({ body, headers }, context) {
                 statusCode: 400,
                 body: `Webhook Error: ${error.message}`,
             };
+        } finally {
+            if (connection) {
+                await connection.end();
+            }
         }
 
         return {
@@ -58,6 +65,10 @@ exports.handler = async function ({ body, headers }, context) {
             statusCode: 400,
             body: `Webhook Error: ${err.message}`,
         };
+    } finally {
+        if (connection) {
+            await connection.end();
+        }
     }
 };
 

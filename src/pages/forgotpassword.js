@@ -15,6 +15,7 @@ export default function Login() {
     const [showMessage, setShowMessage] = useState(false);
     const [message, setMessage] = useState("");
     const [messageColor, setMessageColor] = useState("");
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
     useEffect(() => {
         const cookies = new Cookies();
@@ -30,10 +31,12 @@ export default function Login() {
     async function handleSubmit(event) {
         event.preventDefault();
         setShowMessage(false);
+        setIsFormSubmitted(true);
         if (password.length < 6) {
             setMessageColor("red");
             setMessage("Password længde skal være mindst seks.");
             setShowMessage(true);
+            setIsFormSubmitted(false);
             return;
         }
         await fetch("/.netlify/functions/change-password", {
@@ -45,6 +48,7 @@ export default function Login() {
                 if (responseJson.error == "1") {
                     setMessageColor("red");
                     setMessage(responseJson.message);
+                    setIsFormSubmitted(false);
                 } else {
                     setMessageColor("green");
                     setMessage(responseJson.message);
@@ -77,6 +81,7 @@ export default function Login() {
                             placeholder="Skriv email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            disabled={isFormSubmitted}
                         />
                     </div>
 
@@ -89,12 +94,13 @@ export default function Login() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             maxLength="12"
+                            disabled={isFormSubmitted}
                         />
                     </div>
 
                     <button
                         type="submit"
-                        disabled={!validateForm()}
+                        disabled={!validateForm() || isFormSubmitted}
                         className="btn btn-primary btn-color"
                     >
                         Skift Password

@@ -17,6 +17,10 @@ exports.handler = async function (event) {
         await connection.end();
     } catch (e) {
         console.log(`User not found due to error= ${e}`);
+    } finally {
+        if (connection) {
+            await connection.end();
+        }
     }
     return {
         statusCode: 200,

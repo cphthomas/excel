@@ -11,23 +11,34 @@ const connection = require("serverless-mysql")({
 });
 exports.handler = async function (event) {
     const { email, password } = JSON.parse(event.body);
-    await connection.connect();
-    const existUserResult = await getUserDetail(connection, email, password);
+    let existUserResult;
+    let userIp = "";
+    try {
+        await connection.connect();
+        existUserResult = await getUserDetail(connection, email, password);
 
-    if (!existUserResult[0]) {
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                error: "1",
-                message: "Forkert email eller password",
-            }),
-        };
+        if (!existUserResult[0]) {
+            await connection.end();
+            return {
+                statusCode: 200,
+                body: JSON.stringify({
+                    error: "1",
+                    message: "Forkert email eller password",
+                }),
+            };
+        }
+        userIp = await uniqid();
+
+        await updateUser(connection, existUserResult[0].user_email, userIp);
+
+        await connection.end();
+    } catch (e) {
+        console.log(`User not logged in due to error= ${e}`);
+    } finally {
+        if (connection) {
+            await connection.end();
+        }
     }
-    const userIp = await uniqid();
-
-    await updateUser(connection, existUserResult[0].user_email, userIp);
-
-    await connection.end();
 
     return {
         statusCode: 200,

@@ -35,12 +35,20 @@ exports.handler = async function ({ body, headers }, context) {
                 statusCode: 400,
                 body: `Webhook Error: ${error.message}`,
             };
+        } finally {
+            if (connection) {
+                connect.end();
+            }
         }
     } catch (error) {
         return {
             statusCode: 400,
             body: `Webhook Error: ${error.message}`,
         };
+    } finally {
+        if (connection) {
+            connect.end();
+        }
     }
 };
 

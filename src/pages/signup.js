@@ -17,6 +17,7 @@ export default function SignUp() {
     const [showMessage, setShowMessage] = useState(false);
     const [message, setMessage] = useState("");
     const [messageColor, setMessageColor] = useState("");
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
     useEffect(() => {
         const cookies = new Cookies();
@@ -32,9 +33,11 @@ export default function SignUp() {
     async function handleSubmit(event) {
         event.preventDefault();
         setShowMessage(false);
+        setIsFormSubmitted(true);
         if (password.length < 6) {
             setMessageColor("red");
             setMessage("Password længde skal være mindst seks.");
+            setIsFormSubmitted(false);
             setShowMessage(true);
             return;
         }
@@ -49,6 +52,7 @@ export default function SignUp() {
                 if (responseJson.error == "1") {
                     setMessageColor("red");
                     setMessage(responseJson.message);
+                    setIsFormSubmitted(false);
                 } else {
                     customerId = responseJson.customerId;
                     setMessageColor("green");
@@ -107,6 +111,7 @@ export default function SignUp() {
                             placeholder="Skriv navn"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            disabled={isFormSubmitted}
                         />
                     </div>
 
@@ -118,6 +123,7 @@ export default function SignUp() {
                             placeholder="Skriv email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            disabled={isFormSubmitted}
                         />
                     </div>
 
@@ -130,6 +136,7 @@ export default function SignUp() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             maxLength="12"
+                            disabled={isFormSubmitted}
                         />
                     </div>
 
@@ -149,6 +156,7 @@ export default function SignUp() {
                                         setPlanType(e.target.value)
                                     }
                                     required
+                                    disabled={isFormSubmitted}
                                 />{" "}
                                 Pro
                             </label>
@@ -162,6 +170,7 @@ export default function SignUp() {
                                     onChange={(e) =>
                                         setPlanType(e.target.value)
                                     }
+                                    disabled={isFormSubmitted}
                                 />{" "}
                                 Premium
                             </label>
@@ -171,7 +180,7 @@ export default function SignUp() {
                     <button
                         type="submit"
                         className="btn btn-primary btn-color"
-                        disabled={!validateForm()}
+                        disabled={!validateForm() || isFormSubmitted}
                     >
                         Køb adgang nu
                     </button>

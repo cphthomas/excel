@@ -12,54 +12,63 @@ const connection = require("serverless-mysql")({
 
 exports.handler = async function (event) {
     const { email, name, password } = JSON.parse(event.body);
-
-    await connection.connect();
-    const existUserResult = await getUserDetail(connection, email);
-    if (existUserResult[0] && existUserResult[0].user_email) {
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                error: "1",
-                message: "Der findes allerede en bruger med denne email",
-            }),
-        };
-    }
-
-    console.log("existUserResult = " + existUserResult);
-
-    const customer = await stripe.customers.create({
-        email: email,
-    });
-
-    // subscribe the new customer to the free plan
-    await stripe.subscriptions.create({
-        customer: customer.id,
-        items: [{ price: process.env.GATSBY_FREE_PLAN_PRICE }],
-    });
-
-    const userIp = await uniqid();
-
-    var member = {
-        user_name: name,
-        user_email: email,
-        user_password: password,
-        stripe_id: customer.id,
-        plan_id: "0",
-        is_logged_in: 1,
-        user_ip: userIp,
-        book_access: process.env.GATSBY_BOOK_ACCESS,
-    };
+    let existUserResult;
+    userIp = "";
+    let customer;
     try {
-        var query = await connection.query({
-            sql: "INSERT INTO external_users SET ?",
-            timeout: 20000,
-            values: [member],
-        });
-    } catch (e) {
-        console.log(`User not created= ${e}`);
-    }
+        await connection.connect();
+        existUserResult = await getUserDetail(connection, email);
+        if (existUserResult[0] && existUserResult[0].user_email) {
+            await connection.end();
+            return {
+                statusCode: 200,
+                body: JSON.stringify({
+                    error: "1",
+                    message: "Der findes allerede en bruger med denne email",
+                }),
+            };
+        }
 
-    await connection.end();
+        customer = await stripe.customers.create({
+            email: email,
+        });
+
+        // subscribe the new customer to the free plan
+        await stripe.subscriptions.create({
+            customer: customer.id,
+            items: [{ price: process.env.GATSBY_FREE_PLAN_PRICE }],
+        });
+
+        userIp = await uniqid();
+
+        var member = {
+            user_name: name,
+            user_email: email,
+            user_password: password,
+            stripe_id: customer.id,
+            plan_id: "0",
+            is_logged_in: 1,
+            user_ip: userIp,
+            book_access: process.env.GATSBY_BOOK_ACCESS,
+        };
+        try {
+            var query = await connection.query({
+                sql: "INSERT INTO external_users SET ?",
+                timeout: 20000,
+                values: [member],
+            });
+        } catch (e) {
+            console.log(`User not created= ${e}`);
+        }
+
+        await connection.end();
+    } catch (e) {
+        console.log(`Not signup due to error= ${e}`);
+    } finally {
+        if (connection) {
+            await connection.end();
+        }
+    }
 
     return {
         statusCode: 200,
@@ -67,8 +76,7 @@ exports.handler = async function (event) {
             error: "0",
             customerId: customer.id,
             userIp: userIp,
-            message:
-                "Bruger opretter du sendes til Stripe checkout...",
+            message: "Bruger opretter du sendes til Stripe checkout...",
         }),
     };
 };

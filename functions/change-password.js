@@ -10,28 +10,36 @@ const connection = require("serverless-mysql")({
 exports.handler = async function (event) {
     const { email, password } = JSON.parse(event.body);
     await connection.connect();
-    const existUserResult = await getUserDetail(connection, email);
+    try {
+        const existUserResult = await getUserDetail(connection, email);
 
-    if (!existUserResult[0]) {
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                error: "1",
-                message: "Der findes ingen bruger med denne email",
-            }),
-        };
+        if (!existUserResult[0]) {
+            await connection.end();
+            return {
+                statusCode: 200,
+                body: JSON.stringify({
+                    error: "1",
+                    message: "Der findes ingen bruger med denne email",
+                }),
+            };
+        }
+
+        await updateUser(connection, email, password);
+
+        await connection.end();
+    } catch (e) {
+        console.log(`Password not changed due to error= ${e}`);
+    } finally {
+        if (connection) {
+            await connection.end();
+        }
     }
-
-    await updateUser(connection, email, password);
-
-    await connection.end();
 
     return {
         statusCode: 200,
         body: JSON.stringify({
             error: "0",
-            message:
-                "Password er nu ændret du sendes til login siden...",
+            message: "Password er nu ændret du sendes til login siden...",
         }),
     };
 };

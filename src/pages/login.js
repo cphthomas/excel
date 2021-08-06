@@ -15,6 +15,7 @@ export default function Login() {
     const [showMessage, setShowMessage] = useState(false);
     const [message, setMessage] = useState("");
     const [messageColor, setMessageColor] = useState("");
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
     useEffect(() => {
         const cookies = new Cookies();
@@ -30,15 +31,15 @@ export default function Login() {
     async function handleSubmit(event) {
         event.preventDefault();
         setShowMessage(false);
+        setIsFormSubmitted(true);
         if (password.length < 6) {
             setMessageColor("red");
             setMessage("Password længde skal være mindst seks.");
             setShowMessage(true);
+            setIsFormSubmitted(false);
             return;
         }
-        let customerId;
         let planId;
-        let planType = "pro";
         const cookies = new Cookies();
         await fetch("/.netlify/functions/user-log-in", {
             method: "POST",
@@ -49,6 +50,7 @@ export default function Login() {
                 if (responseJson.error == "1") {
                     setMessageColor("red");
                     setMessage(responseJson.message);
+                    setIsFormSubmitted(false);
                 } else {
                     planId = responseJson.planId;
                     setMessageColor("green");
@@ -94,6 +96,7 @@ export default function Login() {
                             placeholder="Skriv email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            disabled={isFormSubmitted}
                         />
                     </div>
 
@@ -106,12 +109,13 @@ export default function Login() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             maxLength="12"
+                            disabled={isFormSubmitted}
                         />
                     </div>
 
                     <button
                         type="submit"
-                        disabled={!validateForm()}
+                        disabled={!validateForm() || isFormSubmitted}
                         className="btn btn-primary btn-color"
                     >
                         Log ind
@@ -127,7 +131,10 @@ export default function Login() {
                         </a>
                     </p>
                     <p className="forgot-password text-right">
-                        <a class="btn btn-primary guideBtn" href="/forgotpassword">
+                        <a
+                            class="btn btn-primary guideBtn"
+                            href="/forgotpassword"
+                        >
                             Glemt password?
                         </a>
                     </p>
