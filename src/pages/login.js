@@ -86,7 +86,7 @@ export default function Login() {
             </Helmet>
             <div className="form-div customFormDiv">
                 <form onSubmit={handleSubmit}>
-                    <h1 className="page-title">Adgang</h1>
+                    <h1 className="page-title">Adgang Statistik</h1>
 
                     <div className="form-group">
                         <label>Email</label>
