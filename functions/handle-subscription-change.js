@@ -1,4 +1,4 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.GATSBY_STRIPE_SK_KEY);
 const connection = require("serverless-mysql")({
     config: {
         host: "lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
@@ -19,6 +19,7 @@ exports.handler = async function ({ body, headers }, context) {
         if (stripeEvent.type !== "customer.subscription.updated") return;
 
         const subscription = await stripeEvent.data.object;
+        const newSubscriptionId = await subscription.id;
 
         let plan = "0";
         if (
@@ -45,6 +46,16 @@ exports.handler = async function ({ body, headers }, context) {
             );
 
             await connection.end();
+
+            const userAllSubscriptions = await stripe.subscriptions.list({
+                customer: subscription.customer
+            });
+
+            await userAllSubscriptions.data.forEach(async (element) => {
+                if (element.id != newSubscriptionId) {
+                    stripe.subscriptions.del(element.id);
+                }
+            });
         } catch (error) {
             return {
                 statusCode: 400,

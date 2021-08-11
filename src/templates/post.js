@@ -179,6 +179,13 @@ const Post = ({ data, location, pageContext }) => {
     async function premiumCheckout(e) {
         e.preventDefault();
         const planType = "premium";
+        if (
+            !confirm(
+                "Du har nu et Pro abonnement, hvis du skifter til premium abonnement, annulleres dit pro abonnement. Fremadrettet betaler du kun betaler for et premium abonnement. Er du sikker?"
+            )
+        ) {
+            return;
+        }
         await fetch("/.netlify/functions/create-stripe-checkout", {
             method: "POST",
             body: JSON.stringify({ customerId, email, planType }),
@@ -340,7 +347,7 @@ const Post = ({ data, location, pageContext }) => {
                     <div className="card">
                         <div className="card-body">
                             <h2 className="whiteClr">
-                            Dette kapitel er kun for betalende abonnenter 
+                            Dette kapitel er kun for betalende abonnenter
                             </h2>
                             <p className="font-18">
                                 Har du allerede abonnement?{" "}
@@ -355,8 +362,8 @@ const Post = ({ data, location, pageContext }) => {
                       fisrtTagPlan == constants.PREMIUM_POST) ? (
                     <div className="card">
                         <div className="card-body">
-                            <h2 className="whiteClr">
-                                Dette kapitel er kun for betalende abonnenter 
+                            <h2 className="whiteClr accessMsg">
+                                Dette kapitel er kun for betalende abonnenter
                             </h2>
                             <div className="form-group">
                                 <label className="font-size-15">
@@ -399,7 +406,7 @@ const Post = ({ data, location, pageContext }) => {
                                         className="btn btn-primary btn-premiume"
                                         disabled={!validateForm()}
                                     >
-                                        Upgrader abonnement
+                                        Opgrader abonnement
                                     </button>
                                 </form>
                             </div>
@@ -411,15 +418,15 @@ const Post = ({ data, location, pageContext }) => {
                   fisrtTagPlan == constants.PREMIUM_POST ? (
                     <div className="card">
                         <div className="card-body">
-                            <h2 className="whiteClr">
-                            Dette kapitel er kun for premium abonnenter
+                            <h2 className="whiteClr accessMsg">
+                                Dette kapitel er kun for premium abonnenter
                             </h2>
                             <button
                                 type="submit"
                                 className="btn btn-primary btn-premiume"
                                 onClick={premiumCheckout}
                             >
-                                Upgrader til premium
+                                Opgrader til premium
                             </button>
                         </div>
                     </div>

@@ -50,6 +50,8 @@
     /* padding: 10px; */
     /* width: 30% !important; */
     line-height: 0.428571 !important;
+    height: 25px;
+    border-radius: 0px;
 }
 
 .font-18 {
@@ -284,4 +286,8 @@ table {
     .helpModal {
         max-width: 100% !important;
     }
+}
+
+.accessMsg {
+    padding-top: 0px;
 }

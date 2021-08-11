@@ -1,4 +1,4 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.GATSBY_STRIPE_SK_KEY);
 const connection = require("serverless-mysql")({
     config: {
         host: "lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
@@ -22,7 +22,34 @@ exports.handler = async function ({ body, headers }, context) {
         try {
             await connection.connect();
 
-            await updateUser(connection, subscription.customer, 0);
+            const userAllSubscriptions = await stripe.subscriptions.list({
+                customer: subscription.customer,
+            });
+
+            let newPlan = 0;
+            //if (userAllSubscriptions.length > 0) {
+            await userAllSubscriptions.data.forEach(async (element) => {
+                if (element.status == "active") {
+                    if (element.plan.id == process.env.GATSBY_FREE_PLAN_PRICE) {
+                        newPlan = 0;
+                    } else if (
+                        element.plan.id == process.env.GATSBY_PRO_PLAN_PRICE
+                    ) {
+                        newPlan = 1;
+                    } else if (
+                        element.plan.id == process.env.GATSBY_PREMIUM_PLAN_PRICE
+                    ) {
+                        newPlan = 2;
+                    }
+                } else {
+                    newPlan = 0;
+                }
+            });
+            // } else {
+            //     newPlan = 0;
+            // }
+
+            await updateUser(connection, subscription.customer, newPlan);
 
             await connection.end();
 
@@ -37,7 +64,7 @@ exports.handler = async function ({ body, headers }, context) {
             };
         } finally {
             if (connection) {
-                connect.end();
+                connection.end();
             }
         }
     } catch (error) {
@@ -45,10 +72,6 @@ exports.handler = async function ({ body, headers }, context) {
             statusCode: 400,
             body: `Webhook Error: ${error.message}`,
         };
-    } finally {
-        if (connection) {
-            connect.end();
-        }
     }
 };
 
