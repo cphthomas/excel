@@ -54,6 +54,14 @@ module.exports = {
          *  Content Plugins
          */
         {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "UA-83600694-3",
+                head: true,
+                anonymize: true,
+            },
+        },
+        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 path: path.join(__dirname, `src`, `pages`),
