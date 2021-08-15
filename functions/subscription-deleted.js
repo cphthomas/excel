@@ -21,7 +21,7 @@ exports.handler = async function ({ body, headers }, context) {
 
         try {
             await connection.connect();
-            await updateUser(connection, subscription.customer, newPlan);
+            await updateUser(connection, subscription.customer, 0);
 
             // const userAllSubscriptions = await stripe.subscriptions.list({
             //     customer: subscription.customer,
