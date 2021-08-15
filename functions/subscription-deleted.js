@@ -21,35 +21,36 @@ exports.handler = async function ({ body, headers }, context) {
 
         try {
             await connection.connect();
-
-            const userAllSubscriptions = await stripe.subscriptions.list({
-                customer: subscription.customer,
-            });
-
-            let newPlan = 0;
-            //if (userAllSubscriptions.length > 0) {
-            await userAllSubscriptions.data.forEach(async (element) => {
-                if (element.status == "active") {
-                    if (element.plan.id == process.env.GATSBY_FREE_PLAN_PRICE) {
-                        newPlan = 0;
-                    } else if (
-                        element.plan.id == process.env.GATSBY_PRO_PLAN_PRICE
-                    ) {
-                        newPlan = 1;
-                    } else if (
-                        element.plan.id == process.env.GATSBY_PREMIUM_PLAN_PRICE
-                    ) {
-                        newPlan = 2;
-                    }
-                } else {
-                    newPlan = 0;
-                }
-            });
-            // } else {
-            //     newPlan = 0;
-            // }
-
             await updateUser(connection, subscription.customer, newPlan);
+
+            // const userAllSubscriptions = await stripe.subscriptions.list({
+            //     customer: subscription.customer,
+            // });
+
+            // let newPlan = 0;
+            // //if (userAllSubscriptions.length > 0) {
+            // await userAllSubscriptions.data.forEach(async (element) => {
+            //     if (element.status == "active") {
+            //         if (element.plan.id == process.env.GATSBY_FREE_PLAN_PRICE) {
+            //             newPlan = 0;
+            //         } else if (
+            //             element.plan.id == process.env.GATSBY_PRO_PLAN_PRICE
+            //         ) {
+            //             newPlan = 1;
+            //         } else if (
+            //             element.plan.id == process.env.GATSBY_PREMIUM_PLAN_PRICE
+            //         ) {
+            //             newPlan = 2;
+            //         }
+            //     } else {
+            //         newPlan = 0;
+            //     }
+            // });
+            // // } else {
+            // //     newPlan = 0;
+            // // }
+
+            // await updateUser(connection, subscription.customer, newPlan);
 
             await connection.end();
 
