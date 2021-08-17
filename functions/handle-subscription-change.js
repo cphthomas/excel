@@ -19,7 +19,7 @@ exports.handler = async function ({ body, headers }, context) {
         if (stripeEvent.type !== "customer.subscription.updated") return;
 
         const subscription = await stripeEvent.data.object;
-        //const newSubscriptionId = await subscription.id;
+        const newSubscriptionId = await subscription.id;
 
         let plan = "0";
         if (
@@ -47,15 +47,15 @@ exports.handler = async function ({ body, headers }, context) {
 
             await connection.end();
 
-            // const userAllSubscriptions = await stripe.subscriptions.list({
-            //     customer: subscription.customer,
-            // });
+            const userAllSubscriptions = await stripe.subscriptions.list({
+                customer: subscription.customer
+            });
 
-            // await userAllSubscriptions.data.forEach(async (element) => {
-            //     if (element.id != newSubscriptionId) {
-            //         stripe.subscriptions.del(element.id);
-            //     }
-            // });
+            await userAllSubscriptions.data.forEach(async (element) => {
+                if (element.id != newSubscriptionId) {
+                    stripe.subscriptions.del(element.id);
+                }
+            });
         } catch (error) {
             return {
                 statusCode: 400,

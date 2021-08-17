@@ -179,13 +179,13 @@ const Post = ({ data, location, pageContext }) => {
     async function premiumCheckout(e) {
         e.preventDefault();
         const planType = "premium";
-        // if (
-        //     !confirm(
-        //         "Du har nu et Pro abonnement, hvis du skifter til premium abonnement, annulleres dit pro abonnement. Fremadrettet betaler du kun betaler for et premium abonnement. Er du sikker?"
-        //     )
-        // ) {
-        //     return;
-        // }
+        if (
+            !confirm(
+                "Du har nu et Pro abonnement, hvis du skifter til premium abonnement, annulleres dit pro abonnement. Fremadrettet betaler du kun betaler for et premium abonnement. Er du sikker?"
+            )
+        ) {
+            return;
+        }
         await fetch("/.netlify/functions/create-stripe-checkout", {
             method: "POST",
             body: JSON.stringify({ customerId, email, planType }),

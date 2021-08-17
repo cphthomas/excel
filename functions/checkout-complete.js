@@ -13,51 +13,45 @@ exports.handler = async function ({ body, headers }, context) {
         const stripeEvent = await stripe.webhooks.constructEvent(
             body,
             headers["stripe-signature"],
-            process.env.GATSBY_STRIPE_DELETE_WEBHOOK
+            process.env.GATSBY_STRIPE_CHECKOUT_WEBHOOK
         );
-        if (stripeEvent.type !== "customer.subscription.deleted") return;
+
+        if (stripeEvent.type !== "checkout.session.completed") return;
 
         const subscription = await stripeEvent.data.object;
+        const newSubscriptionId = await subscription.subscription;
+
+        let plan = "0";
+        if (subscription.amount_total == "4900") {
+            plan = "1";
+        } else if (subscription.amount_total == "6900") {
+            plan = "2";
+        }
 
         try {
             await connection.connect();
-            //await updateUser(connection, subscription.customer, 0);
 
-            const userAllSubscriptions = await stripe.subscriptions.list({
-                customer: subscription.customer,
-                limit: 1,
-            });
-
-            let newPlan = 0;
-            await userAllSubscriptions.data.forEach(async (element) => {
-                if (
-                    element.status == "active" &&
-                    element.pause_collection == null
-                ) {
-                    if (element.plan.id == process.env.GATSBY_FREE_PLAN_PRICE) {
-                        newPlan = 0;
-                    } else if (
-                        element.plan.id == process.env.GATSBY_PRO_PLAN_PRICE
-                    ) {
-                        newPlan = 1;
-                    } else if (
-                        element.plan.id == process.env.GATSBY_PREMIUM_PLAN_PRICE
-                    ) {
-                        newPlan = 2;
-                    }
-                } else {
-                    newPlan = 0;
-                }
-            });
-
-            await updateUser(connection, subscription.customer, newPlan);
+            await updateUser(
+                connection,
+                subscription.customer,
+                stripeEvent.created,
+                stripeEvent.created,
+                plan
+            );
 
             await connection.end();
 
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ received: subscription.customer }),
-            };
+            const userAllSubscriptions = await stripe.subscriptions.list({
+                customer: subscription.customer,
+            });
+
+            await userAllSubscriptions.data.forEach(async (element) => {
+                if (element.id != newSubscriptionId) {
+                    stripe.subscriptions.update(element.id, {
+                        pause_collection: { behavior: "mark_uncollectible" },
+                    });
+                }
+            });
         } catch (error) {
             return {
                 statusCode: 400,
@@ -65,25 +59,34 @@ exports.handler = async function ({ body, headers }, context) {
             };
         } finally {
             if (connection) {
-                connection.end();
+                await connection.end();
             }
         }
-    } catch (error) {
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify({ received: subscription.customer }),
+        };
+    } catch (err) {
         return {
             statusCode: 400,
-            body: `Webhook Error: ${error.message}`,
+            body: `Webhook Error: ${err.message}`,
         };
+    } finally {
+        if (connection) {
+            await connection.end();
+        }
     }
 };
 
-async function updateUser(connection, stripeId, plan) {
+async function updateUser(connection, stripeId, planEnd, planStart, plan) {
     return new Promise((resolve, reject) => {
         connection.query(
             {
                 sql:
-                    "UPDATE external_users SET plan_id = ? WHERE stripe_id = ?",
+                    "UPDATE external_users SET plan_id = ?, user_subscription_end = ?, user_subscription_start = ? WHERE stripe_id = ?",
                 timeout: 10000,
-                values: [plan, stripeId],
+                values: [plan, planEnd, planStart, stripeId],
             },
             function (error, results, fields) {
                 if (error) reject(err);

@@ -142,7 +142,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 setUserPlan("Premium");
                             }
                             const dt =
-                                responseJson.user[0].user_subscription_end +
+                                responseJson.user[0].user_subscription_start +
                                 "000";
 
                             const monthNames = [
@@ -160,6 +160,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 "December",
                             ];
                             const dateObj = new Date(parseInt(dt));
+                            dateObj.setDate(dateObj.getDate() + 30);
+                            console.log(dateObj);
                             const month = monthNames[dateObj.getMonth()];
                             const day = String(dateObj.getDate()).padStart(
                                 2,

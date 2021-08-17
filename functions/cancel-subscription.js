@@ -5,7 +5,6 @@ exports.handler = async function (event) {
 
     const subscriptions = await stripe.subscriptions.list({
         customer: userStripeId,
-        limit: 3,
     });
 
     if (subscriptions.data[0].cancel_at_period_end) {
