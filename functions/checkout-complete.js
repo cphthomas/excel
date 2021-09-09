@@ -52,6 +52,10 @@ exports.handler = async function ({ body, headers }, context) {
                     });
                 }
             });
+            return {
+                statusCode: 200,
+                body: JSON.stringify({ received: subscription.customer }),
+            };
         } catch (error) {
             return {
                 statusCode: 400,
@@ -63,10 +67,10 @@ exports.handler = async function ({ body, headers }, context) {
             }
         }
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ received: subscription.customer }),
-        };
+        // return {
+        //     statusCode: 200,
+        //     body: JSON.stringify({ received: subscription.customer }),
+        // };
     } catch (err) {
         return {
             statusCode: 400,
