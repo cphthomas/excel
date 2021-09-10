@@ -36,7 +36,8 @@ exports.handler = async function ({ body, headers }, context) {
                 subscription.customer,
                 stripeEvent.created,
                 stripeEvent.created,
-                plan
+                plan,
+                subscription.customer_details.email
             );
 
             await connection.end();
@@ -83,14 +84,21 @@ exports.handler = async function ({ body, headers }, context) {
     }
 };
 
-async function updateUser(connection, stripeId, planEnd, planStart, plan) {
+async function updateUser(
+    connection,
+    stripeId,
+    planEnd,
+    planStart,
+    plan,
+    stripeEmail
+) {
     return new Promise((resolve, reject) => {
         connection.query(
             {
                 sql:
-                    "UPDATE external_users SET plan_id = ?, user_subscription_end = ?, user_subscription_start = ? WHERE stripe_id = ?",
+                    "UPDATE external_users SET plan_id = ?, user_subscription_end = ?, user_subscription_start = ?, stripe_mail = ? WHERE stripe_id = ?",
                 timeout: 10000,
-                values: [plan, planEnd, planStart, stripeId],
+                values: [plan, planEnd, planStart, stripeEmail, stripeId],
             },
             function (error, results, fields) {
                 if (error) reject(err);
