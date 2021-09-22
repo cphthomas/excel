@@ -101,7 +101,7 @@ export default function SignUp() {
             </Helmet>
             <div className="form-div customFormDiv">
                 <form onSubmit={handleSubmit}>
-                    <h1 className="page-title">Køb adgang Statistik</h1>
+                    <h1 className="page-title">Køb adgang Excel</h1>
 
                     <div className="form-group">
                         <label>Navn</label>
@@ -144,7 +144,7 @@ export default function SignUp() {
                         <label>Vælg abonnement</label>
                         <div>
                             <label
-                                data-tip="Adgang til Statistik Pro indhold, 49.00kr DKK / Pr. måned"
+                                data-tip="Adgang til Excel Pro indhold, 49.00kr DKK / Pr. måned"
                                 className="margin-right-20"
                             >
                                 <input
@@ -160,7 +160,7 @@ export default function SignUp() {
                                 />{" "}
                                 Pro
                             </label>
-                            <label data-tip="Fuld adgang Statistik Premium, 69.00kr DKK / Pr. måned">
+                            <label data-tip="Fuld adgang Excel Premium, 69.00kr DKK / Pr. måned">
                                 <input
                                     type="radio"
                                     name="size"
