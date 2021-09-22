@@ -76,7 +76,7 @@ export const pageQuery = graphql`
     query GhostPostQuery {
         allGhostPost(
             sort: { order: ASC, fields: published_at }
-            filter: { tags: { elemMatch: { name: { eq: "Statistik" } } } }
+            filter: { tags: { elemMatch: { name: { eq: "Excel" } } } }
         ) {
             edges {
                 node {
