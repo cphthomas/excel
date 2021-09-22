@@ -488,7 +488,7 @@ export const postQuery = graphql`
     query($slug: String!) {
         ghostPost(
             slug: { eq: $slug }
-            tags: { elemMatch: { name: { eq: "Statistik" } } }
+            tags: { elemMatch: { name: { eq: "Excel" } } }
         ) {
             ...GhostPostFields
         }

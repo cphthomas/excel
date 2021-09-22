@@ -1,7 +1,7 @@
 const escapeStringRegexp = require("escape-string-regexp");
 
 const pagePath = `content`;
-const indexName = `Book_two`;
+const indexName = `Excel`;
 
 const pageQuery = `{
   pages: allGhostPost(
