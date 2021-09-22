@@ -673,7 +673,7 @@ const DefaultLayoutSettingsQuery = (props) => (
                 allGhostPost(
                     sort: { order: ASC, fields: published_at }
                     filter: {
-                        tags: { elemMatch: { name: { eq: "Statistik" } } }
+                        tags: { elemMatch: { name: { eq: "Excel" } } }
                     }
                 ) {
                     edges {
