@@ -1,10 +1,10 @@
 module.exports = {
-    siteUrl: `https://s1.tepedu.dk`, // Site domain. Do not include a trailing slash!
+    siteUrl: `https://excel.tepedu.dk`, // Site domain. Do not include a trailing slash!
 
     postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 
-    siteTitleMeta: `Statistik online bog`, // This allows an alternative site title for meta data for pages.
-    siteDescriptionMeta: `Statistik online bog`, // This allows an alternative site description for meta data for pages.
+    siteTitleMeta: `Excel online bog`, // This allows an alternative site title for meta data for pages.
+    siteDescriptionMeta: `Excel online bog`, // This allows an alternative site description for meta data for pages.
 
     shareImageWidth: 1000, // Change to the width of your default share image
     shareImageHeight: 523, // Change to the height of your default share image
