@@ -425,7 +425,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     <li>
                                         <a
                                             className="dropdown-item"
-                                            href="mailto: statistik@tepedu.com"
+                                            href="mailto: excel@tepedu.com"
                                         >
                                             Kontakt
                                         </a>

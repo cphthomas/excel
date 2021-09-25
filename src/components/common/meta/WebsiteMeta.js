@@ -50,7 +50,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
     return (
         <>
             <Helmet>
-                <title>Statistik</title>
+                <title>Excel</title>
                 <meta name="description" content={description} />
                 <link rel="canonical" href={canonical} />
                 <meta property="og:site_name" content={settings.title} />
