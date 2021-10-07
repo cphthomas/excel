@@ -24,6 +24,7 @@ import customNewJS from "../../newscript.js";
 import handsonJS from "../../handson.js";
 import amplitudeJS from "../../amplitude.js";
 import highchartJS from "../../highcharts.js";
+import FilterResults from "react-filter-search";
 
 // Styles
 import "../../styles/app.css";
@@ -61,6 +62,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const [helpModalImageSrc, setHelpModalImageSrc] = useState("");
 
     const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PK_KEY);
+
+    const [value, setValue] = useState("");
+    const [jsonData, setJsonData] = useState("");
 
     const cookies = new Cookies();
     const site = data.allGhostSettings.edges[0].node;
@@ -107,6 +111,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         handsonJS();
         amplitudeJS();
         highchartJS();
+        searchRes();
 
         const userEmail = cookies.get("loggedInUser");
         let customerStripeId = "";
@@ -204,6 +209,24 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         }
     }, []);
 
+    //https://jsonplaceholder.typicode.com/users
+    ///.netlify/functions/all-posts
+
+    async function searchRes() {
+        fetch("/.netlify/functions/all-posts")
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json.posts);
+                setJsonData(json.posts);
+            });
+    }
+
+    async function handleChange(event) {
+        const { value } = event.target;
+        //this.setState({ value });
+        setValue(value);
+    }
+
     return (
         <>
             <Helmet>
@@ -254,7 +277,50 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     </div>
                                 </div>
                                 {/* <ci-search></ci-search> */}
-                                <Search indices={searchIndices} />
+                                {/* <Search indices={searchIndices} /> */}
+
+                                {jsonData != "" ? (
+                                    <div>
+                                        <input
+                                            type="text"
+                                            value={value}
+                                            onChange={handleChange}
+                                            className="searchInput"
+                                            placeholder="Search"
+                                        />
+
+                                        <FilterResults
+                                            value={value}
+                                            data={jsonData}
+                                            renderResults={(results) => (
+                                                <div
+                                                    className={`searchFilter ${
+                                                        value
+                                                            ? ""
+                                                            : "filterHide"
+                                                    }`}
+                                                >
+                                                    {results.map((el) => (
+                                                        <div>
+                                                            {/* <span>
+                                                                {el.id}
+                                                            </span> */}
+                                                            <a
+                                                                href={
+                                                                    "/" +
+                                                                    el.slug
+                                                                }
+                                                            >
+                                                                {el.title}
+                                                            </a>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        />
+                                    </div>
+                                ) : null}
+
                                 <div className="site-nav-right">
                                     {userLoggedIn == "0" ? (
                                         <Link
@@ -672,9 +738,7 @@ const DefaultLayoutSettingsQuery = (props) => (
                 }
                 allGhostPost(
                     sort: { order: ASC, fields: published_at }
-                    filter: {
-                        tags: { elemMatch: { name: { eq: "Excel" } } }
-                    }
+                    filter: { tags: { elemMatch: { name: { eq: "Excel" } } } }
                 ) {
                     edges {
                         node {
