@@ -305,10 +305,12 @@ a:hover {
     position: absolute;
     background: white;
     color: black;
-    /* padding-right: 5px;
-    padding-left: 5px; */
-    padding: 5px;
-    width: 14%;
+    padding: 1em;
+    max-height: 80vh;
+    overflow: scroll;
+    width: 80vw;
+    max-width: 30em;
+    box-shadow: 0px 0px 5px 0px;
 }
 
 .searchInput {
@@ -321,4 +323,103 @@ a:hover {
 
 .searchFilter a {
     text-decoration: none;
+    color: black;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 1.5em 0 0.5em;
+    font-size: 1.3rem;
+    margin-bottom: 0.2em;
+}
+
+.searchFilter div {
+    margin-bottom: 0.2em;
+}
+
+.button-main {
+    /* display: inline-block; */
+    /* margin: 4px 2px; */
+    font-size: 14px;
+    /* padding-left: 32px;
+    padding-right: 32px; */
+    /* height: 50px; */
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    /* -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; */
+}
+
+.button-main:hover {
+    transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    color: black;
+}
+
+.search-container-main {
+    /* position: fixed;
+    display: inline-block; */
+    margin: 4px 2px;
+    height: 30px;
+    width: 50px;
+    /* vertical-align: bottom; */
+    bottom: 0px;
+    /* left: 180px; */
+    /* z-index: 99999; */
+}
+
+.mglass-main {
+    display: inline-block;
+    pointer-events: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+}
+
+.searchbutton-main {
+    /* position: absolute; */
+    font-size: 22px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.search-main:focus + .searchbutton-main {
+    transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    /* background-color: white; */
+    color: black;
+    display: none;
+}
+
+.search-main {
+    position: absolute;
+    /* left: 49px; */
+    /* background-color: white; */
+    outline: none;
+    border: none;
+    padding: 0;
+    width: 0;
+    height: 70%;
+    /* z-index: 10; */
+    transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    /* top: 3px; */
+    color: black;
+}
+
+.search-main:focus {
+    width: 150px;
+    padding: 0 2px 0 2px;
+    border: 1px black solid !important;
 }

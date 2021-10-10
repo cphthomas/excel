@@ -84,6 +84,11 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     //     });
     // });
 
+    let postPath = "";
+    if (typeof window !== "undefined") {
+        postPath = window.location.pathname;
+    }
+
     function userLogout() {
         cookies.remove("loggedInUser");
         cookies.remove("loggedInUserIpAddress");
@@ -213,18 +218,43 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     ///.netlify/functions/all-posts
 
     async function searchRes() {
-        fetch("/.netlify/functions/all-posts")
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json.posts);
-                setJsonData(json.posts);
-            });
+        if (postPath == "/") {
+            fetch("/.netlify/functions/all-posts")
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json.posts);
+                    setJsonData(json.posts);
+                });
+        }
     }
 
     async function handleChange(event) {
         const { value } = event.target;
-        //this.setState({ value });
+        console.log(event.target);
         setValue(value);
+    }
+
+    async function handleKeyUp(event) {
+        const { value } = event.target;
+        console.log(event.target);
+        setValue(value);
+    }
+
+    function handleFocus(event) {
+        setValue("");
+    }
+
+    async function serachInPage(e) {
+        let code = e.keyCode ? e.keyCode : e.which;
+        if (code == 13) {
+            if (
+                typeof window !== "undefined" &&
+                !window.find(e.target.value) &&
+                e.target.value != ""
+            ) {
+                alert("No result!");
+            }
+        }
     }
 
     return (
@@ -279,15 +309,37 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 {/* <ci-search></ci-search> */}
                                 {/* <Search indices={searchIndices} /> */}
 
-                                {jsonData != "" ? (
+                                {jsonData != "" && postPath == "/" ? (
                                     <div>
-                                        <input
+                                        {/* <input
                                             type="text"
                                             value={value}
                                             onChange={handleChange}
                                             className="searchInput"
                                             placeholder="Search"
-                                        />
+                                        /> */}
+
+                                        <div class="search-container-main">
+                                            <input
+                                                class="search-main"
+                                                id="searchleftmain"
+                                                type="search test"
+                                                name="q"
+                                                placeholder="Search"
+                                                value={value}
+                                                onChange={handleChange}
+                                                //onKeyUp={(e) => handleKeyUp(e)}
+                                                //onBlur={(e) => handleFocus(e)}
+                                            />
+                                            <label
+                                                class="button-main searchbutton-main"
+                                                for="searchleftmain"
+                                            >
+                                                <span class="mglass-main">
+                                                    &#9906;
+                                                </span>
+                                            </label>
+                                        </div>
 
                                         <FilterResults
                                             value={value}
@@ -320,6 +372,29 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                         />
                                     </div>
                                 ) : null}
+
+                                {postPath != "/" ? (
+                                    <div class="search-container-main">
+                                        <input
+                                            class="search-main"
+                                            id="searchleft"
+                                            type="search test"
+                                            name="q"
+                                            onKeyUp={(e) => serachInPage(e)}
+                                            placeholder="Søg i kapitlet"
+                                        />
+                                        <label
+                                            class="button-main searchbutton-main"
+                                            for="searchleft"
+                                        >
+                                            <span class="mglass-main">
+                                                &#9906;
+                                            </span>
+                                        </label>
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
 
                                 <div className="site-nav-right">
                                     {userLoggedIn == "0" ? (
