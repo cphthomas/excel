@@ -94,6 +94,7 @@ const Post = ({ data, location, pageContext }) => {
                         ? window.location.pathname
                         : "";
                 let keyPressed = e.key;
+                console.log("keyPressed = " + keyPressed);
                 if (
                     currentUrl != "/login" &&
                     currentUrl != "/signup" &&
@@ -103,7 +104,7 @@ const Post = ({ data, location, pageContext }) => {
                         navigate("/" + nextPageUrl);
                     } else if (prevPageUrl != "" && keyPressed == "ArrowLeft") {
                         navigate("/" + prevPageUrl);
-                    } else if (keyPressed == "h") {
+                    } else if (keyPressed == "Escape") {
                         navigate("/");
                     }
                 }

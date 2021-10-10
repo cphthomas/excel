@@ -288,14 +288,16 @@ a:hover {
 
 .searchFilter {
     position: absolute;
-    background: white;
-    color: black;
+    /* background: white;
+    color: black; */
+    background: black;
+    color: white;
     padding: 1em;
     max-height: 80vh;
-    overflow: scroll;
+    /* overflow: scroll; */
     width: 80vw;
     max-width: 30em;
-    box-shadow: 0px 0px 5px 0px;
+    /* box-shadow: 0px 0px 5px 0px; */
 }
 
 .searchInput {
@@ -308,12 +310,26 @@ a:hover {
 
 .searchFilter a {
     text-decoration: none;
-    color: black;
+    /* color: black; */
+    color: white;
     font-weight: 500;
     line-height: 1.2;
     margin: 1.5em 0 0.5em;
     font-size: 1.3rem;
     margin-bottom: 0.2em;
+}
+
+.searchFilter div:hover {
+    /* text-decoration: none; */
+    /* background-color: white;
+    color: black !important;
+    cursor: pointer; */
+}
+
+.searchFilter a:hover {
+    text-decoration: none;
+    background-color: white;
+    color: black;
 }
 
 .searchFilter div {
@@ -381,7 +397,7 @@ a:hover {
     -webkit-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     /* background-color: white; */
-    color: black;
+    /* color: black; */
     display: none;
 }
 
@@ -400,7 +416,12 @@ a:hover {
     -webkit-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     /* top: 3px; */
-    color: black;
+    /* color: black; */
+    background-color: black;
+}
+
+.search-main::placeholder {
+    color: white;
 }
 
 .search-main:focus {
