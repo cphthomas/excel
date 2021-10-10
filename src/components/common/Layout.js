@@ -252,10 +252,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         }
     }
 
-    async function handleSearchURLClick(url) {
-        console.log(url);
-    }
-
     return (
         <>
             <Helmet>
@@ -357,11 +353,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                                                 href={
                                                                     "/" +
                                                                     el.slug
-                                                                }
-                                                                onClick={(e) =>
-                                                                    handleSearchURLClick(
-                                                                        el.slug
-                                                                    )
                                                                 }
                                                             >
                                                                 {el.title}
