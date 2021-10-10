@@ -230,18 +230,13 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
 
     async function handleChange(event) {
         const { value } = event.target;
-        console.log(event.target);
-        setValue(value);
-    }
-
-    async function handleKeyUp(event) {
-        const { value } = event.target;
-        console.log(event.target);
         setValue(value);
     }
 
     function handleFocus(event) {
-        setValue("");
+        setTimeout(() => {
+            setValue("");
+        }, 300);
     }
 
     async function serachInPage(e) {
@@ -255,6 +250,10 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 alert("No result!");
             }
         }
+    }
+
+    async function handleSearchURLClick(url) {
+        console.log(url);
     }
 
     return (
@@ -329,7 +328,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                                 value={value}
                                                 onChange={handleChange}
                                                 //onKeyUp={(e) => handleKeyUp(e)}
-                                                //onBlur={(e) => handleFocus(e)}
+                                                onBlur={(e) => handleFocus(e)}
                                             />
                                             <label
                                                 class="button-main searchbutton-main"
@@ -354,13 +353,15 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                                 >
                                                     {results.map((el) => (
                                                         <div>
-                                                            {/* <span>
-                                                                {el.id}
-                                                            </span> */}
                                                             <a
                                                                 href={
                                                                     "/" +
                                                                     el.slug
+                                                                }
+                                                                onClick={(e) =>
+                                                                    handleSearchURLClick(
+                                                                        el.slug
+                                                                    )
                                                                 }
                                                             >
                                                                 {el.title}

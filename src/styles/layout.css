@@ -51,11 +51,6 @@
     background-color: #15171a !important;
     text-decoration: none !important;
 }
-.nav-item li a:hover {
-    /* background-color: unset !important;
-    text-decoration: underline !important;
-    color: #23527c !important; */
-}
 .nav-item .dropdown-menu {
     display: none;
 }
@@ -210,16 +205,6 @@ a:hover {
 
 .site-foot-nav {
     justify-content: center !important;
-}
-
-.site-foot a {
-    /* display: block;
-    width: 70px;
-    background-color: rgba(000, 000, 000, 1) !important;
-    text-align: center;
-    color: white !important;
-    line-height: 25px;
-    text-decoration: none; */
 }
 
 .helpBtn {
