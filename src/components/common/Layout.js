@@ -2,20 +2,9 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { Link, StaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-import {
-    Button,
-    Dropdown,
-    ButtonGroup,
-    Modal,
-    Row,
-    Col,
-} from "react-bootstrap";
 import { Navigation } from ".";
-import config from "../../utils/siteConfig";
 import Cookies from "universal-cookie";
 import "../../styles/layout.css";
-import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -28,7 +17,6 @@ import FilterResults from "react-filter-search";
 
 // Styles
 import "../../styles/app.css";
-import Search from "../search";
 const searchIndices = [{ name: `Excel`, title: `Posts` }];
 
 /**
