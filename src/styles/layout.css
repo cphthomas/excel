@@ -262,9 +262,13 @@ a:hover {
 
 .switch-on,
 .switch-off {
-    font-size: 13px !important;
+    font-size: 12px !important;
     font-family: sans-serif !important;
     background-color: black !important;
+}
+
+.switch-off.btn {
+    padding-left: 0.5em !important;
 }
 
 .modal-title {
@@ -409,7 +413,7 @@ a:hover {
     border: none;
     padding: 0;
     width: 0;
-    height: 70%;
+    /* height: 70%; */
     /* z-index: 10; */
     transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
@@ -418,6 +422,8 @@ a:hover {
     /* top: 3px; */
     /* color: black; */
     background-color: black;
+    font-size: 12px !important;
+    height: 25px !important;
 }
 
 .search-main::placeholder {
@@ -428,4 +434,20 @@ a:hover {
     width: 150px;
     padding: 0 2px 0 2px;
     border: 1px black solid !important;
+    margin-top: 3px;
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: portrait) {
+    .search-container-main {
+        left: 78px;
+    }
+
+    .search-main:focus {
+        width: 82px;
+        /* height: 50px !important; */
+    }
+
+    .search-main {
+    }
 }

@@ -172,21 +172,6 @@ table {
     padding: 0 0 0 16px;
 }
 
-/* Portrait */
-@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: portrait) {
-    .search-container {
-        left: 78px;
-    }
-
-    .search:focus {
-        width: 82px;
-    }
-
-    .search {
-        font-size: 10px !important;
-    }
-}
-
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
     .post-full-content {
