@@ -177,8 +177,8 @@ const Post = ({ data, location, pageContext }) => {
                 },
                 voice: {
                     languageCode: "da-dk",
-                    name: "da-DK-Standard-C",
-                    ssmlGender: "MALE",
+                    name: "da-DK-Wavenet-A",
+                    ssmlGender: "FEMALE",
                 },
                 audioConfig: {
                     audioEncoding: "MP3",
