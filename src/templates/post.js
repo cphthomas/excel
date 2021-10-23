@@ -11,13 +11,9 @@ import * as tocbot from "tocbot";
 import { constants } from "../utils/constants";
 import { Image } from "react-bootstrap";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
-// import { useSpeechSynthesis } from "react-speech-kit";
-import Speech from "speak-tts";
 import postScript from "../post-script.js";
 import visJS from "../vis.js";
 import { navigate } from "gatsby";
-import * as googleTTS from "google-tts-api";
-import speechSynthesis from "speech-synthesis";
 
 /**
  * Single post view (/:slug)
@@ -26,44 +22,13 @@ import speechSynthesis from "speech-synthesis";
  *
  */
 const Post = ({ data, location, pageContext }) => {
-    let audio = new Audio();
-    //const { speak } = useSpeechSynthesis();
+    let audio;
     const [nextPageUrl, setNextPageURL] = useState(
         pageContext.next ? pageContext.next.slug : ""
     );
     const [prevPageUrl, setPrevPageUrl] = useState(
         pageContext.prev ? pageContext.prev.slug : ""
     );
-    //let nextPageUrl = pageContext.next ? pageContext.next.slug : "";
-    //let prevPageUrl = pageContext.prev ? pageContext.prev.slug : "";
-    console.log(nextPageUrl);
-    console.log(prevPageUrl);
-    // let speech;
-    // if (typeof window !== "undefined") {
-    //     speech = new Speech();
-    //     speech
-    //         .init({
-    //             volume: 1,
-    //             lang: "da-DK",
-    //             rate: 1,
-    //             pitch: 0,
-    //             voice: "Google UK English Male",
-    //             splitSentences: true,
-    //             listeners: {
-    //                 onvoiceschanged: (voices) => {
-    //                     console.log("Event voiceschanged", voices);
-    //                 },
-    //             },
-    //         })
-    //         .then((data) => {
-    //             console.log("Speech is ready", data);
-    //             _addVoicesList(data.voices);
-    //             _prepareSpeakButton(speech);
-    //         })
-    //         .catch((e) => {
-    //             console.error("An error occured while initializing : ", e);
-    //         });
-    // }
 
     const post = data.ghostPost;
 
@@ -72,7 +37,6 @@ const Post = ({ data, location, pageContext }) => {
         isBrowser() && window.location.replace(process.env.GATSBY_SITE_URL);
     }
     const fisrtTagPlan = post?.tags[0] ? post.tags[0].name : "";
-    //const secondTagBookAccess = post.tags[1] ? post.tags[1].name : "";
     const [userLoggedIn, setUserLoggedIn] = useState(false);
     const [apiResponse, setApiResponse] = useState(false);
     const [userPlanId, setUserPlanId] = useState("");
@@ -200,11 +164,11 @@ const Post = ({ data, location, pageContext }) => {
     }
 
     async function selectedText() {
-        if (speechTextEnable) {
+        if (speechTextEnable && typeof window !== "undefined") {
             let textToSpeech = "";
-            if (typeof window !== "undefined") {
-                textToSpeech = window.getSelection().toString();
-            }
+            //if (typeof window !== "undefined") {
+            textToSpeech = window.getSelection().toString();
+            //}
             const url =
                 "https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=AIzaSyBpsYZKqwyVctQKamQf4StfhvSWSSz-2lE";
             const data = {
