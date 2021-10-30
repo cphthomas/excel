@@ -227,7 +227,7 @@ const Post = ({ data, location, pageContext }) => {
                 }}
                 onClick={playText}
             >
-                Click here to play
+                Tale
             </span>
             <audio ref={myRef} src="" />
             <MetaData data={data} location={location} type="article" />
